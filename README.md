@@ -40,6 +40,10 @@ Bernadette is prompted with questions to ascertain whether or not she is a kinsh
 - the QA will review and reassign the creator of the PR and unassign themself :wave:
 - this step repeats until the PR can be merged :twisted_rightwards_arrows: and the branch deleted :x:
 
+### Figma Prototype
+
+![](https://i.imgur.com/kYVaQwt.png)
+
 ## Roles
 #### Jennah - QA
 #### Phat - UX
