@@ -10,7 +10,9 @@
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
-  "pre-commit": ["test"],
+  "pre-commit": [
+    "test"
+  ],
   "keywords": [],
   "author": "Jennah, Phat, Tammy, Vanessa",
   "license": "ISC",
