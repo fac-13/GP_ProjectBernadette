@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import data from "./data/wayfinderData.js";
+import data from "../../data/wayfinderData.js";
 
 export default class Wayfinder extends Component {
   constructor(props) {
