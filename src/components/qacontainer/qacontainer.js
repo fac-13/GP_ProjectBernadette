@@ -8,7 +8,7 @@ function QAContainer(props) {
   return (
     <li>
       {leaf ? (
-        <Result />
+        <Result result={result} />
       ) : (
         <React.Fragment>
           <Question question={question} />
