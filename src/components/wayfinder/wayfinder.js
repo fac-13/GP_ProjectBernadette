@@ -15,9 +15,7 @@ export default class Wayfinder extends React.Component {
     const { content, usersPath } = this.state;
 
     return usersPath.map(item => {
-      return (
-        <QAContainer qablock={content[item]} key={content[item].question} />
-      );
+      return <QAContainer qablock={content[item]} key={item} />;
     });
   };
 
