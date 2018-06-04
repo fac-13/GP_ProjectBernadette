@@ -7,12 +7,10 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel ./public/index.html",
+    "build": "parcel build ./public/index.html"
   },
-  "pre-commit": [
-    "test"
-  ],
+  "pre-commit": ["test"],
   "keywords": [],
   "author": "Jennah, Phat, Tammy, Vanessa",
   "license": "ISC",

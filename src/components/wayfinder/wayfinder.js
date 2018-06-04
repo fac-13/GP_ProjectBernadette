@@ -1,12 +1,13 @@
-import React from "react";
-import content from "../../data/wayfinderData.js";
+import React from 'react';
+import content from '../../data/wayfinderData.js';
+import QAContainer from '../qacontainer/qacontainer';
 
 export default class Wayfinder extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      usersPath: ["start"],
+      usersPath: ['start'],
       content: content
     };
   }
@@ -20,6 +21,11 @@ export default class Wayfinder extends React.Component {
   };
 
   render() {
-    return <ul>{this.questionList()}</ul>;
+    return (
+      <div>
+        <h1>hello</h1>
+        <ul>{this.questionList()}</ul>
+      </div>
+    );
   }
 }
