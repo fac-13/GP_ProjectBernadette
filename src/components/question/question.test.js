@@ -2,10 +2,10 @@ import React from "react";
 import { renderIntoDocument } from "react-testing-library";
 import Question from './question'
 
-test("First question appears", () => {
+test("Any question appears", () => {
   const { getByText } = renderIntoDocument(
-    <Question />
+    <Question question="hello test"/>
   );
-  const headerNode = getByText("Are you");
-  expect(headerNode.textContent).toBe("Are you a grandparent?");
+  const headerNode = getByText("hello test");
+  expect(headerNode.textContent).toBe("hello test");
 });
