@@ -24,6 +24,7 @@ export default class Wayfinder extends React.Component {
   render() {
     const Title = styled.h1`
       color: #ec632f;
+      text-align: center;
     `;
     return (
       <div>
