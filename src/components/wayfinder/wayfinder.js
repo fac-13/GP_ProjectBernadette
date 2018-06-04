@@ -1,21 +1,23 @@
-import React, { Component } from "react";
-import data from "../../data/wayfinderData.js";
+import React from "react";
+import content from "../../data/wayfinderData.js";
 
-export default class Wayfinder extends Component {
+export default class Wayfinder extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       usersPath: ["start"],
-      data: data
+      content: content
     };
   }
 
   questionList = () => {
-    const { data, usersPath } = this.state;
+    const { content, usersPath } = this.state;
 
     return usersPath.map(item => {
-      return <QAContainer question={data[item]} key={data[item].question} />;
+      return (
+        <QAContainer qablock={content[item]} key={content[item].question} />
+      );
     });
   };
 
