@@ -1,3 +1,15 @@
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VScode
+.vscode
+
+# Parcel
+.cache
+dist
+
 # Logs
 logs
 *.log
@@ -59,8 +71,3 @@ typings/
 
 # next.js build output
 .next
-
-node_modules/
-dist/
-.cache/
-.vscode/
