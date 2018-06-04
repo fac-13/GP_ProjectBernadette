@@ -1,5 +1,7 @@
 import wayfinder from './wayfinderData';
 
+// as we continue to modify the json object, this test will verify that it is still in working order
+// console logs kept to find errors in case of test failure
 test('Test JSON data for flowchart contains no errors', () => {
   function treeWalker(node) {
     if (node.leaf) {
@@ -7,11 +9,12 @@ test('Test JSON data for flowchart contains no errors', () => {
       return;
     }
     // console.log(node.question);
-    node.answer.map((obj, i) => {
-      // console.log(node.answer[i].label);
-      treeWalker(wayfinder[node.answer[i].goto]);
+    node.options.map((obj) => {
+      // console.log(obj.answer);
+      treeWalker(wayfinder[obj.goto]);
     });
   }
+  // treeWalker(wayfinder.start);
   expect(() => {
     treeWalker(wayfinder.start);
   }).not.toThrow();

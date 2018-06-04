@@ -1,46 +1,44 @@
 const wayfinder = {
   start: {
     question: 'Are you a grandparent?',
-    answer: [
-      { label: 'yes', goto: 'live-with' },
-      { label: 'no', goto: 'close-fam' }
+    options: [
+      { answer: 'yes', goto: 'live-with' },
+      { answer: 'no', goto: 'close-fam' }
     ]
   },
   'live-with': {
     question: 'Does a grandchild live with you?',
-    answer: [
-      { label: 'yes', goto: 'kc-rights' },
-      { label: 'no', goto: 'lost-contact' }
+    options: [
+      { answer: 'yes', goto: 'kc-rights' },
+      { answer: 'no', goto: 'lost-contact' }
     ]
   },
   'kc-rights': {
     question: 'Do you need help understanding your rights as a kinship carer?',
-    answer: [
-      { label: 'yes', goto: 'need-advice' },
-      { label: 'no', goto: 'info-kc' }
+    options: [
+      { answer: 'yes', goto: 'need-advice' },
+      { answer: 'no', goto: 'info-kc' }
     ]
   },
   'need-advice': {
     question:
-      'Answer a few questions to help us understand your situation. Continue?',
-    answer: [
-      { label: 'yes', goto: 'legal-order' },
-      { label: 'no', goto: 'info-kc' }
+      'If you need advice, our team can help. Please answer a few questions to help us understand your situation. Continue?',
+    options: [
+      { answer: 'continue', goto: 'legal-order' }
     ]
   },
   'close-fam': {
-    question:
-      'Are you a close family member looking after someone elses child?',
-    answer: [
-      { label: 'yes', goto: 'kc-rights' },
-      { label: 'no', goto: 'info-gen' }
+    question: 'Are you a close family member looking after someone else\'s child?',
+    options: [
+      { answer: 'yes', goto: 'kc-rights' },
+      { answer: 'no', goto: 'info-gen' }
     ]
   },
   'lost-contact': {
     question: 'Have you lost contact with your grandchild?',
-    answer: [
-      { label: 'yes', goto: 'info-lost-contact' },
-      { label: 'no', goto: 'info-gen' }
+    options: [
+      { answer: 'yes', goto: 'info-lost-contact' },
+      { answer: 'no', goto: 'info-gen' }
     ]
   },
   'info-gen': {
@@ -56,25 +54,56 @@ const wayfinder = {
     leaf: true
   },
   'legal-order': {
-    question: 'What kind of legal order do you have?',
-    answer: [
-      { label: 'a', goto: 'type-a' },
-      { label: 'b', goto: 'type-b' },
-      { label: 'c', goto: 'type-c' }
+    question: 'Do you already have a legal order?',
+    options: [
+      { answer: 'yes', goto: 'order-type' },
+      { answer: 'no/no idea', goto: 'social-services' }
     ]
   },
-  'type-a': {
-    result: 'type a legal order info',
+
+  'order-type': {
+    question: 'Do you know which type of legal order you have?',
+    options: [
+      { answer: 'yes', goto: 'select-type' },
+      { answer: 'no', goto: 'complete-form' },
+    ]
+  },
+
+  'select-type': {
+    question: 'Please select the type of legal order below',
+    options: [
+      { answer: 'Special Guardianship Order (SGO)', goto: 'complete-form' },
+      { answer: 'Child Arrangement Order (CAO)', goto: 'complete-form' },
+    ]
+  },
+
+  'complete-form': {
+    result: 'Please complete the form below to be contacted in 3 days',
     leaf: true
   },
-  'type-b': {
-    result: 'type a legal order info',
-    leaf: true
+
+  'social-services': {
+    question: 'did social services ask you to provide care for the child?',
+    options: [
+      { answer: 'yes', goto: 'foster-carer' },
+      { answer: 'no', goto: 'informal-arrangement' }
+    ]
   },
-  'type-c': {
-    result: 'type c legal order info',
-    leaf: true
+  'foster-carer': {
+    question: 'Are you a kinship foster carer?',
+    options: [
+      { answer: 'yes', goto: 'complete-form' },
+      { answer: 'no/no idea', goto: 'complete-form' }
+    ]
+  },
+  'informal-arrangement': {
+    question: 'Did you make an informal arrangement to look after the child?',
+    options: [
+      { answer: 'yes', goto: 'complete-form' },
+      { answer: 'no/no idea', goto: 'complete-form' }
+    ]
   }
+
 };
 
 export default wayfinder;
