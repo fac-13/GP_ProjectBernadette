@@ -46,10 +46,11 @@ export default class Wayfinder extends React.Component {
     const Title = styled.h1`
       color: #ec632f;
       text-align: center;
+      font-family: Evenfall;
     `;
     const QuestionWrap = styled.ul`
-    padding: 0;
-    `
+      padding: 0;
+    `;
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
