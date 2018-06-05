@@ -31,10 +31,13 @@ export default class Wayfinder extends React.Component {
       color: #ec632f;
       text-align: center;
     `;
+    const QuestionWrap = styled.ul`
+    padding: 0;
+    `
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
-        <ul>{this.questionList()}</ul>
+        <QuestionWrap>{this.questionList()}</QuestionWrap>
       </Wrapper>
     );
   }
