@@ -42,19 +42,26 @@ export default class Wayfinder extends React.Component {
       display: flex;
       flex-direction: column;
       align-items: center;
+      border: solid 1px red;
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'Raleway', 'Arial', sans-serif;
+      font-weight: ${props => props.theme.weight.body};
     `;
     const Title = styled.h1`
-      color: #ec632f;
+      color: ${props => props.theme.color.orange};
       text-align: center;
       font-family: Evenfall;
+      border: solid 1px red;
     `;
-    const QuestionWrap = styled.ul`
-      padding: 0;
+    const QuestionUL = styled.ul`
+      padding: 1rem;
+      border: solid 1px red;
     `;
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
-        <QuestionWrap>{this.questionList()}</QuestionWrap>
+        <QuestionUL>{this.questionList()}</QuestionUL>
       </Wrapper>
     );
   }
