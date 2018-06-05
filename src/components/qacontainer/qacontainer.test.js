@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-testing-library';
+import { renderIntoDocument, cleanup } from 'react-testing-library';
 import QAContainer from './qacontainer';
 import content from '../../data/wayfinderData';
 import { ThemeProvider } from 'styled-components';
@@ -23,12 +23,27 @@ const theme = {
   }
 };
 
-test('QA Container renders properly', () => {
-  const { getByTestId } = renderIntoDocument(
+describe('Test QA container', () => {
+  afterEach(cleanup);
+
+  test('QA Container renders questions properly', () => {
+    const { getByTestId } = renderIntoDocument(
     <ThemeProvider theme={theme}>
     <QAContainer qablock={content.start} />
     </ThemeProvider>
-  );
-  const question = getByTestId('question');
-  expect(question.textContent).toBe('Are you a grandparent?');
+    );
+    const question = getByTestId('question');
+    expect(question.textContent).toBe('Are you a grandparent?');
+  });
+
+  test('QA container renders results properly', () => {
+    const { getByTestId } = renderIntoDocument(
+      <ThemeProvider theme={theme}>
+      <QAContainer qablock={content['info-gen']} />
+      </ThemeProvider>
+    );
+
+    const result = getByTestId('result');
+    expect(result.textContent).toBe('general info');
+  });
 });
