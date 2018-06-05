@@ -1,6 +1,7 @@
 import React from 'react';
 import content from '../../data/wayfinderData.js';
 import QAContainer from '../qacontainer/qacontainer';
+import styled from 'styled-components';
 
 export default class Wayfinder extends React.Component {
   constructor(props) {
@@ -37,11 +38,23 @@ export default class Wayfinder extends React.Component {
   };
 
   render() {
+    const Wrapper = styled.div`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `;
+    const Title = styled.h1`
+      color: #ec632f;
+      text-align: center;
+    `;
+    const QuestionWrap = styled.ul`
+    padding: 0;
+    `
     return (
-      <div>
-        <h1>My Wayfinder</h1>
-        <ul>{this.questionList()}</ul>
-      </div>
+      <Wrapper>
+        <Title>My Wayfinder</Title>
+        <QuestionWrap>{this.questionList()}</QuestionWrap>
+      </Wrapper>
     );
   }
 }
