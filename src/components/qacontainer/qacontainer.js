@@ -12,7 +12,7 @@ function QAContainer(props) {
       ) : (
         <React.Fragment>
           <Question question={question} />
-          <Options options={options} />
+          <Options options={options} clickHandler={props.clickHandler} />
         </React.Fragment>
       )}
     </li>
