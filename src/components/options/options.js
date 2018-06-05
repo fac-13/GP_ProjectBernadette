@@ -12,16 +12,20 @@ const ButtonsList = styled.ul`
   margin: 0;
 `
 
-const Button = ({ answer, goto }) => {
-  return <button data-goto={goto}>{answer}</button>;
+const Button = ({ answer, goto, clickHandler }) => {
+  return (
+    <button onClick={clickHandler} data-goto={goto}>
+      {answer}
+    </button>
+  );
 };
 
-function Options({ options }) {
+function Options({ options, clickHandler }) {
   const optionList = () => {
     let i = 0;
 
     return options.map(option => {
-      return <Button {...option} key={i++} />;
+      return <Button clickHandler={clickHandler} {...option} key={i++} />;
     });
   };
 
