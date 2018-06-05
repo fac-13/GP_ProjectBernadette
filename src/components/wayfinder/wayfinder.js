@@ -22,15 +22,20 @@ export default class Wayfinder extends React.Component {
   };
 
   render() {
+    const Wrapper = styled.div`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `;
     const Title = styled.h1`
       color: #ec632f;
       text-align: center;
     `;
     return (
-      <div>
+      <Wrapper>
         <Title>My Wayfinder</Title>
         <ul>{this.questionList()}</ul>
-      </div>
+      </Wrapper>
     );
   }
 }
