@@ -15,11 +15,11 @@ describe('Test QA container', () => {
   });
 
   test('QA container renders results properly', () => {
-    const { getByText } = renderIntoDocument(
+    const { getByTestId } = renderIntoDocument(
       <QAContainer qablock={content['info-gen']} />
     );
 
-    const result = getByText('general info');
+    const result = getByTestId('result');
     expect(result.textContent).toBe('general info');
   });
 });
