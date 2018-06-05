@@ -57,6 +57,7 @@ export default class Wayfinder extends React.Component {
     const QuestionUL = styled.ul`
       padding: 1rem;
       border: solid 1px red;
+      width: 90%;
     `;
     return (
       <Wrapper>

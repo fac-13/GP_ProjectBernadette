@@ -9,14 +9,27 @@ const OptionsWrapper = styled.div`
 
 const ButtonsList = styled.ul`
   padding: 0;
-  margin: 0;
-`
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+const ButtonStyle = styled.button`
+  background-color: ${props => props.active ? props.theme.color.graymid : props.theme.color.yellow};
+  border-style: none;
+  border-radius: 5px;
+  font-family: Evenfall;
+  font-size: 4rem;
+  height: 7rem;
+  width: 7rem;
+`;
 
 const Button = ({ answer, goto, clickHandler }) => {
   return (
-    <button onClick={clickHandler} data-goto={goto}>
+    <ButtonStyle onClick={clickHandler} data-goto={goto}>
       {answer}
-    </button>
+    </ButtonStyle>
   );
 };
 

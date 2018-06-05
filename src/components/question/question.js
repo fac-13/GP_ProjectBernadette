@@ -7,6 +7,7 @@ const Div = styled.div`
   color: ${props => props.theme.color.navy};
   padding: 2rem;
   text-align: center;
+  border-radius: 5px;
 `;
 
 const Question = ({ question }) => {
