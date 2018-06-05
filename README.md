@@ -1,3 +1,5 @@
+![](https://travis-ci.org/fac-13/GP_ProjectBernadette.svg?branch=master)
+
 # Project Bernadette
 
 Bernadette is a decision tree application aiming to help Grandparents or other carers recognize their status as a Kinship Carer and prepare them for getting connected with the organization, Grandparents Plus. 
