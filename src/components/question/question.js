@@ -1,9 +1,12 @@
 import React from 'react';
 
 const Question = ({ question }) => {
+  function createMarkup() {
+    return { __html: question };
+  }
   return (
     <div>
-      <h2 data-testid="question">{question}</h2>
+      <p data-testid="question" dangerouslySetInnerHTML={createMarkup()} />
     </div>
   );
 };
