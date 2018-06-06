@@ -19,14 +19,12 @@ export default class Wayfinder extends React.Component {
     const goto = event.target.dataset.goto;
     const key = this.findKey(usersPath, goto);
     let modifiedPath = [...usersPath];
-    console.log(usersPath);
     modifiedPath.splice(usersPath.indexOf(key) + 1);
-    this.setState(prevState => {
+    this.setState(() => {
       return {
         usersPath: modifiedPath.concat(goto)
       };
     });
-    console.log(modifiedPath);
   };
 
   findKey = (path, child) => {
@@ -39,12 +37,9 @@ export default class Wayfinder extends React.Component {
             result = key;
           }
         });
-      } else {
-        if (content[key].result === content[child].result) {
-          result = content[key].result;
-        }
+      } else if (content[key].result === content[child].result) {
+        result = content[key].result;
       }
-
       if (result) return result;
     }
   };
