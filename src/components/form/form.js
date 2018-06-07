@@ -25,15 +25,13 @@ export default class Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-    console.log(this.state, this.props.usersPath);
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">What is you name?</label>
+          <label htmlFor="name">What is your name?</label>
           <input
             type="text"
             id="name"
