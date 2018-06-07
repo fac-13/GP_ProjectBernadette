@@ -13,8 +13,8 @@ const gpTheme = {
   },
   weight: {
     lead: '900',
-    link: '600',
-    body: '300'
+    link: '700',
+    body: '600'
   }
 };
 
