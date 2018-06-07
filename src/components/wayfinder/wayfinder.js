@@ -48,18 +48,20 @@ export default class Wayfinder extends React.Component {
   questionList = () => {
     const { content, usersPath } = this.state;
 
-    return usersPath.map(item => {
-      return (
-        <React.Fragment>
-          <QAContainer
-            qablock={content[item]}
-            clickHandler={this.clickHandler}
-            key={item}
-          />
-          <Form />
-        </React.Fragment>
-      );
-    });
+    return (
+      <div>
+        {usersPath.map(item => {
+          return (
+            <QAContainer
+              qablock={content[item]}
+              clickHandler={this.clickHandler}
+              key={item}
+            />
+          );
+        })}
+        <Form usersPath={usersPath} />
+      </div>
+    );
   };
 
   render() {

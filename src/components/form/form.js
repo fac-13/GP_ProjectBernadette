@@ -10,7 +10,8 @@ export default class Form extends React.Component {
       email: '',
       location: '',
       time: '',
-      source: ''
+      source: '',
+      gdpr: 'unchecked'
     };
   }
 
@@ -20,6 +21,12 @@ export default class Form extends React.Component {
     this.setState({
       [id]: value
     });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    console.log(this.state, this.props.usersPath);
   };
 
   render() {
@@ -72,6 +79,17 @@ export default class Form extends React.Component {
             type="text"
             id="source"
             value={this.state.source}
+            onChange={this.handleChange}
+            required
+          />
+          <label htmlFor="gdpr">
+            By submitting this form, I agree to my personal information being
+            sent to Grandparents Plus for the purposes of contacting me.
+          </label>
+          <input
+            type="checkbox"
+            id="gdpr"
+            value={this.state.gdpr}
             onChange={this.handleChange}
             required
           />
