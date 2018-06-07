@@ -63,8 +63,7 @@ export default class Wayfinder extends React.Component {
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: solid 1px red;
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
       font-family: 'Raleway', 'Arial', sans-serif;
       font-weight: ${props => props.theme.weight.body};
@@ -72,8 +71,14 @@ export default class Wayfinder extends React.Component {
     const Title = styled.h1`
       color: ${props => props.theme.color.orange};
       text-align: center;
+      letter-spacing: 2px;
+      font-size: 4rem;
       font-family: Evenfall;
-      border: solid 1px red;
+
+      @media (max-width: 400px) {
+        font-size: 3.4rem;
+        letter-spacing: 0px;
+      }
     `;
     const QuestionUL = styled.ul`
       padding: 1rem;

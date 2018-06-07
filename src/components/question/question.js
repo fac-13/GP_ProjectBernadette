@@ -9,7 +9,8 @@ const Div = styled.div`
   text-align: center;
   border-radius: 5px;
 `;
-const StyledQuestion = styled.h2`
+const StyledQuestion = styled.p`
+  font-size: 1.5rem;
   font-weight: ${props => props.theme.weight.body};
 `;
 
