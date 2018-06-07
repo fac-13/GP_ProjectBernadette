@@ -9,11 +9,14 @@ const Div = styled.div`
   text-align: center;
   border-radius: 5px;
 `;
+const StyledQuestion = styled.h2`
+  font-weight: ${props => props.theme.weight.body};
+`;
 
 const Question = ({ question }) => {
   return (
     <Div>
-      <h2 data-testid="question">{question}</h2>
+      <StyledQuestion data-testid="question">{question}</StyledQuestion>
     </Div>
   );
 };
