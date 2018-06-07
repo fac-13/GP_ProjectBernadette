@@ -2,6 +2,7 @@ import React from 'react';
 import content from '../../data/wayfinderData.js';
 import QAContainer from '../qacontainer/qacontainer';
 import styled from 'styled-components';
+import Form from '../form/form';
 
 export default class Wayfinder extends React.Component {
   constructor(props) {
@@ -49,11 +50,14 @@ export default class Wayfinder extends React.Component {
 
     return usersPath.map(item => {
       return (
-        <QAContainer
-          qablock={content[item]}
-          clickHandler={this.clickHandler}
-          key={item}
-        />
+        <React.Fragment>
+          <QAContainer
+            qablock={content[item]}
+            clickHandler={this.clickHandler}
+            key={item}
+          />
+          <Form />
+        </React.Fragment>
       );
     });
   };
