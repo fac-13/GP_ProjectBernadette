@@ -26,20 +26,28 @@ const ButtonStyle = styled.button`
   width: 7rem;
 `;
 
-const Button = ({ answer, goto, clickHandler }) => {
-  return (
-    <ButtonStyle onClick={clickHandler} data-goto={goto}>
-      {answer}
-    </ButtonStyle>
-  );
+const Button = ({ answer, goto, clickHandler, dataKey, selectedPath}) => {
+  console.log(selectedPath);
+  if (selectedPath != dataKey && selectedPath != null){
+    return (
+      <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={true}>
+        {answer}
+      </ButtonStyle>
+    );
+  } else {
+    return (
+      <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={false}>
+        {answer}
+      </ButtonStyle>
+    );
+  }
 };
 
-function Options({ options, clickHandler }) {
+function Options({ options, clickHandler, selectedPath }) {
   const optionList = () => {
-    let i = 0;
 
-    return options.map(option => {
-      return <Button clickHandler={clickHandler} {...option} key={i++} />;
+    return options.map((option, i) => {
+      return <Button clickHandler={clickHandler} {...option} key={i} dataKey={i} selectedPath={selectedPath} />;
     });
   };
 

@@ -9,20 +9,23 @@ export default class Wayfinder extends React.Component {
 
     this.state = {
       usersPath: ['start'],
+      selectedPath: [],
       content: content
     };
   }
 
   // TODO need to clear out and restart usersPath if user changes one of their answers
   clickHandler = event => {
-    const { usersPath } = this.state;
+    const { usersPath,selectedPath } = this.state;
     const goto = event.target.dataset.goto;
+    const dataKey = event.target.dataset.key;
     const key = this.findKey(usersPath, goto);
     let modifiedPath = [...usersPath];
     modifiedPath.splice(usersPath.indexOf(key) + 1);
     this.setState(() => {
       return {
-        usersPath: modifiedPath.concat(goto)
+        usersPath: modifiedPath.concat(goto),
+        selectedPath: selectedPath.concat(dataKey)
       };
     });
   };
@@ -45,14 +48,15 @@ export default class Wayfinder extends React.Component {
   };
 
   questionList = () => {
-    const { content, usersPath } = this.state;
+    const { content, usersPath, selectedPath } = this.state;
 
-    return usersPath.map(item => {
+    return usersPath.map((item, i) => {
       return (
         <QAContainer
           qablock={content[item]}
           clickHandler={this.clickHandler}
           key={item}
+          selectedPath={selectedPath[i]}
         />
       );
     });
