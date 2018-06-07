@@ -5,8 +5,8 @@ import Result from '../result/result';
 import styled from 'styled-components';
 
 const Item = styled.li`
-list-style: none;
-`
+  list-style: none;
+`;
 
 function QAContainer(props) {
   const { question, options, result, leaf } = props.qablock;

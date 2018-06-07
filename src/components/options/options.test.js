@@ -1,6 +1,8 @@
 import React from 'react';
 import { renderIntoDocument, cleanup } from 'react-testing-library';
 import Options from './options';
+import gpTheme from '../../css/theme';
+import { ThemeProvider } from 'styled-components';
 
 afterAll(cleanup);
 
@@ -10,7 +12,9 @@ describe('Test Options block', () => {
     { answer: 'no', goto: 'info-gen' }
   ];
   const { container, getByText } = renderIntoDocument(
-    <Options options={options} />
+    <ThemeProvider theme={gpTheme}>
+      <Options options={options} />
+    </ThemeProvider>
   );
   test('Yes button displays', () => {
     const yesBtn = getByText('yes');

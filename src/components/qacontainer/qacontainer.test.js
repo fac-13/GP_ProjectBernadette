@@ -2,13 +2,17 @@ import React from 'react';
 import { renderIntoDocument, cleanup } from 'react-testing-library';
 import QAContainer from './qacontainer';
 import content from '../../data/wayfinderData';
+import gpTheme from '../../css/theme';
+import { ThemeProvider } from 'styled-components';
 
 describe('Test QA container', () => {
   afterEach(cleanup);
 
   test('QA Container renders questions properly', () => {
     const { getByTestId } = renderIntoDocument(
-      <QAContainer qablock={content.start} />
+      <ThemeProvider theme={gpTheme}>
+        <QAContainer qablock={content.start} />
+      </ThemeProvider>
     );
     const question = getByTestId('question');
     expect(question.textContent).toBe('Are you a grandparent?');
@@ -16,7 +20,9 @@ describe('Test QA container', () => {
 
   test('QA container renders results properly', () => {
     const { getByTestId } = renderIntoDocument(
-      <QAContainer qablock={content['info-gen']} />
+      <ThemeProvider theme={gpTheme}>
+        <QAContainer qablock={content['info-gen']} />
+      </ThemeProvider>
     );
 
     const result = getByTestId('result');
