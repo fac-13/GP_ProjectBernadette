@@ -12,18 +12,16 @@ export default class Form extends React.Component {
       location: '',
       time: '',
       source: '',
-      gdpr: 'unchecked',
-      userResponseData: []
+      gdpr: 'unchecked'
     };
   }
 
-  //TODO this needs to be asyncronous
+  // Loops through the usersPath using the next key in the array as a reference to generate the original
+  // Question and Answer from the Wayfinder content data object
+  // Returns array of Question and Answer objects (eliminating 'continue' answers)
   generateUserResponseDataFromPath = () => {
     const path = this.props.usersPath;
-    let responses = [];
-
-    //loops through the usersPath using the next key in the array as a reference to generate the original Question and Answer from the Wayfinder content data object
-    // returns array of Question and Answer objects (eliminating 'continue' answers)
+    let userResponseData = [];
     path.map((key, i) => {
       let nextKey = path[i + 1];
       let options = content[key].options || null;
@@ -33,16 +31,14 @@ export default class Form extends React.Component {
             return option.answer;
           }
         })[0].answer;
-        responses.push({
+        userResponseData.push({
           question: content[key].question,
           answer: userAnswer
         });
       }
     });
 
-    this.setState({ userInfo: [...responses] }, () =>
-      console.log('state after:', this.state)
-    );
+    return userResponseData;
   };
 
   handleChange = event => {
@@ -55,7 +51,9 @@ export default class Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.generateUserResponseDataFromPath();
+    const userResponseData = this.generateUserResponseDataFromPath();
+    //TODO state and userResponseData needs to be sent to the server.
+    console.log(this.state, userResponseData);
   };
 
   render() {
