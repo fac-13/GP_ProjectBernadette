@@ -67,7 +67,7 @@ export default class Wayfinder extends React.Component {
       max-width: 600px;
       min-height: 100vh;
 
-      background-color: ${props => props.theme.color.white}
+      background-color: ${props => props.theme.color.white};
       font-family: 'Raleway', 'Arial', sans-serif;
       font-weight: ${props => props.theme.weight.body};
     `;
