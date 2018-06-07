@@ -9,7 +9,7 @@ const Item = styled.li`
 `;
 
 function QAContainer(props) {
-  const { question, options, result, leaf } = props.qablock;
+  const { question, options, result, leaf} = props.qablock;
   return (
     <Item>
       {leaf ? (
@@ -17,7 +17,7 @@ function QAContainer(props) {
       ) : (
         <React.Fragment>
           <Question question={question} />
-          <Options options={options} clickHandler={props.clickHandler} />
+          <Options options={options} clickHandler={props.clickHandler} selectedPath={props.selectedPath} />
         </React.Fragment>
       )}
     </Item>
