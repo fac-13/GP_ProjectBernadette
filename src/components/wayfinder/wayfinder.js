@@ -15,12 +15,33 @@ export default class Wayfinder extends React.Component {
 
   // TODO need to clear out and restart usersPath if user changes one of their answers
   clickHandler = event => {
+    const { usersPath } = this.state;
     const goto = event.target.dataset.goto;
-    this.setState(prevState => {
+    const key = this.findKey(usersPath, goto);
+    let modifiedPath = [...usersPath];
+    modifiedPath.splice(usersPath.indexOf(key) + 1);
+    this.setState(() => {
       return {
-        usersPath: prevState.usersPath.concat(goto)
+        usersPath: modifiedPath.concat(goto)
       };
     });
+  };
+
+  findKey = (path, child) => {
+    for (let key of path) {
+      let result;
+
+      if (content[key].hasOwnProperty('options')) {
+        content[key].options.map(option => {
+          if (option.goto === child) {
+            result = key;
+          }
+        });
+      } else if (content[key].result === content[child].result) {
+        result = content[key].result;
+      }
+      if (result) return result;
+    }
   };
 
   questionList = () => {
@@ -59,6 +80,7 @@ export default class Wayfinder extends React.Component {
       border: solid 1px red;
       width: 90%;
     `;
+
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>

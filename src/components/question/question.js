@@ -14,9 +14,15 @@ const StyledQuestion = styled.h2`
 `;
 
 const Question = ({ question }) => {
+  function createMarkup() {
+    return { __html: question };
+  }
   return (
     <Div>
-      <StyledQuestion data-testid="question">{question}</StyledQuestion>
+      <StyledQuestion
+        data-testid="question"
+        dangerouslySetInnerHTML={createMarkup()}
+      />
     </Div>
   );
 };

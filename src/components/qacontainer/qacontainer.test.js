@@ -26,6 +26,6 @@ describe('Test QA container', () => {
     );
 
     const result = getByTestId('result');
-    expect(result.textContent).toBe('general info');
+    expect(result.textContent).toBe('More information about our services');
   });
 });

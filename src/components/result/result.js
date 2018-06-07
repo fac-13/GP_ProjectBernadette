@@ -1,7 +1,10 @@
 import React from 'react';
 
 function Result({ result }) {
-  return <h1 data-testid="result">{result}</h1>;
+  function createMarkup() {
+    return { __html: result };
+  }
+  return <p data-testid="result" dangerouslySetInnerHTML={createMarkup()} />;
 }
 
 export default Result;
