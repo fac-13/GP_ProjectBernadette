@@ -2,6 +2,7 @@ import React from 'react';
 import content from '../../data/wayfinderData.js';
 import QAContainer from '../qacontainer/qacontainer';
 import styled from 'styled-components';
+import Form from '../form/form';
 
 export default class Wayfinder extends React.Component {
   constructor(props) {
@@ -45,17 +46,25 @@ export default class Wayfinder extends React.Component {
   };
 
   questionList = () => {
+    const formRegex = /complete-form/g;
     const { content, usersPath } = this.state;
 
-    return usersPath.map(item => {
-      return (
-        <QAContainer
-          qablock={content[item]}
-          clickHandler={this.clickHandler}
-          key={item}
-        />
-      );
-    });
+    return (
+      <div>
+        {usersPath.map(item => {
+          return (
+            <QAContainer
+              qablock={content[item]}
+              clickHandler={this.clickHandler}
+              key={item}
+            />
+          );
+        })}
+        {usersPath.some(string => formRegex.test(string)) && (
+          <Form usersPath={usersPath} />
+        )}
+      </div>
+    );
   };
 
   render() {
