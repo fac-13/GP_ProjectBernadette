@@ -25,8 +25,6 @@ export default class Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-    console.log(this.state, this.props.usersPath);
   };
 
   render() {
