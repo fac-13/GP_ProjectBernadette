@@ -1,4 +1,6 @@
 import React from 'react';
+import content from '../../data/wayfinderData.js';
+import findKey from '../../utils/findKey';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -11,9 +13,16 @@ export default class Form extends React.Component {
       location: '',
       time: '',
       source: '',
-      gdpr: 'unchecked'
+      gdpr: 'unchecked',
+      content: []
     };
   }
+
+  generateContentFromPath = () => {
+    const path = this.props.usersPath;
+    // takes in path = generate content
+    return;
+  };
 
   handleChange = event => {
     const id = event.target.id;
@@ -25,8 +34,8 @@ export default class Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-    console.log(this.state, this.props.usersPath);
+    this.generateContentFromPath();
+    console.log(this.state);
   };
 
   render() {
