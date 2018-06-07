@@ -46,6 +46,7 @@ export default class Wayfinder extends React.Component {
   };
 
   questionList = () => {
+    const formRegex = /complete-form/g;
     const { content, usersPath } = this.state;
 
     return (
@@ -59,7 +60,9 @@ export default class Wayfinder extends React.Component {
             />
           );
         })}
-        <Form usersPath={usersPath} />
+        {usersPath.some(string => formRegex.test(string)) && (
+          <Form usersPath={usersPath} />
+        )}
       </div>
     );
   };
