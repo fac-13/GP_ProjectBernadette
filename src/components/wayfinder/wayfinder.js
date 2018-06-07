@@ -21,11 +21,15 @@ export default class Wayfinder extends React.Component {
     const dataKey = event.target.dataset.key;
     const key = this.findKey(usersPath, goto);
     let modifiedPath = [...usersPath];
+    let modifiedSelected = [...selectedPath];
     modifiedPath.splice(usersPath.indexOf(key) + 1);
+    modifiedSelected.splice(usersPath.indexOf(key));
+    
+    
     this.setState(() => {
       return {
         usersPath: modifiedPath.concat(goto),
-        selectedPath: selectedPath.concat(dataKey)
+        selectedPath: modifiedSelected.concat(dataKey)
       };
     });
   };

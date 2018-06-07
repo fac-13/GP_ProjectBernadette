@@ -27,7 +27,6 @@ const ButtonStyle = styled.button`
 `;
 
 const Button = ({ answer, goto, clickHandler, dataKey, selectedPath}) => {
-  console.log(selectedPath);
   if (selectedPath != dataKey && selectedPath != null){
     return (
       <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={true}>
