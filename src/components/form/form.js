@@ -1,4 +1,5 @@
 import React from 'react';
+import content from '../../data/wayfinderData.js';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -15,6 +16,31 @@ export default class Form extends React.Component {
     };
   }
 
+  // Loops through the usersPath using the next key in the array as a reference to generate the original
+  // Question and Answer from the Wayfinder content data object
+  // Returns array of Question and Answer objects (eliminating 'continue' answers)
+  generateUserResponseDataFromPath = () => {
+    const path = this.props.usersPath;
+    let userResponseData = [];
+    path.map((key, i) => {
+      let nextKey = path[i + 1];
+      let options = content[key].options || null;
+      if (options !== null && options.length > 1) {
+        let userAnswer = options.filter(option => {
+          if (option.goto === nextKey) {
+            return option.answer;
+          }
+        })[0].answer;
+        userResponseData.push({
+          question: content[key].question,
+          answer: userAnswer
+        });
+      }
+    });
+
+    return userResponseData;
+  };
+
   handleChange = event => {
     const id = event.target.id;
     const value = event.target.value;
@@ -25,6 +51,9 @@ export default class Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const userResponseData = this.generateUserResponseDataFromPath();
+    //TODO state and userResponseData needs to be sent to the server.
+    console.log(this.state, userResponseData);
   };
 
   render() {
@@ -37,7 +66,6 @@ export default class Form extends React.Component {
             id="name"
             value={this.state.name}
             onChange={this.handleChange}
-            required
           />
           <label htmlFor="telephone">What is your phone number?</label>
           <input
@@ -45,7 +73,6 @@ export default class Form extends React.Component {
             id="telephone"
             value={this.state.telephone}
             onChange={this.handleChange}
-            required
           />
           <label htmlFor="email">What is your email address?</label>
           <input
@@ -60,7 +87,6 @@ export default class Form extends React.Component {
             id="location"
             value={this.state.location}
             onChange={this.handleChange}
-            required
           />
           <label htmlFor="time">
             What is the best time for us to reach you?
@@ -70,7 +96,6 @@ export default class Form extends React.Component {
             id="time"
             value={this.state.time}
             onChange={this.handleChange}
-            required
           />
           <label htmlFor="source">How did you hear about us?</label>
           <input
@@ -78,7 +103,6 @@ export default class Form extends React.Component {
             id="source"
             value={this.state.source}
             onChange={this.handleChange}
-            required
           />
           <label htmlFor="gdpr">
             By submitting this form, I agree to my personal information being
@@ -87,9 +111,8 @@ export default class Form extends React.Component {
           <input
             type="checkbox"
             id="gdpr"
-            value={this.state.gdpr}
+            value="checked"
             onChange={this.handleChange}
-            required
           />
           <button type="submit">Submit</button>
         </form>

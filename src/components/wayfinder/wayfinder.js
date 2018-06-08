@@ -1,8 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 import content from '../../data/wayfinderData.js';
 import QAContainer from '../qacontainer/qacontainer';
-import styled from 'styled-components';
 import Form from '../form/form';
+import findKey from '../../utils/findKey';
 
 export default class Wayfinder extends React.Component {
   constructor(props) {
@@ -15,12 +16,11 @@ export default class Wayfinder extends React.Component {
     };
   }
 
-  // TODO need to clear out and restart usersPath if user changes one of their answers
   clickHandler = event => {
     const { usersPath, selectedPath } = this.state;
     const goto = event.target.dataset.goto;
+    const key = findKey(usersPath, goto);
     const dataKey = event.target.dataset.key;
-    const key = this.findKey(usersPath, goto);
     let modifiedPath = [...usersPath];
     let modifiedSelected = [...selectedPath];
     modifiedPath.splice(usersPath.indexOf(key) + 1);
@@ -32,23 +32,6 @@ export default class Wayfinder extends React.Component {
         selectedPath: modifiedSelected.concat(dataKey)
       };
     });
-  };
-
-  findKey = (path, child) => {
-    for (let key of path) {
-      let result;
-
-      if (content[key].hasOwnProperty('options')) {
-        content[key].options.map(option => {
-          if (option.goto === child) {
-            result = key;
-          }
-        });
-      } else if (content[key].result === content[child].result) {
-        result = content[key].result;
-      }
-      if (result) return result;
-    }
   };
 
   questionList = () => {
@@ -121,9 +104,7 @@ export default class Wayfinder extends React.Component {
             ref={el => {
               this.questionListEnd = el;
             }}
-          >
-            Hi!
-          </div>
+          />
         </QuestionUL>
       </Wrapper>
     );
