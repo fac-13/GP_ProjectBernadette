@@ -43,17 +43,17 @@ const wayfinder = {
   },
   'info-gen': {
     result:
-      'More information about <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/advice-and-information#">our services</a>',
+      'More information about <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/advice-and-information#" target="_blank">our services</a>',
     leaf: true
   },
   'info-lost-contact': {
     result:
-      'More information about <a href="https://www.grandparentsplus.org.uk/what-you-can-do">lost or denied contact</a>',
+      'More information about <a href="https://www.grandparentsplus.org.uk/what-you-can-do" target="_blank">lost or denied contact</a>',
     leaf: true
   },
   'info-kc': {
     result:
-      'More information about being a <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/new-kinship-carer">Kinship Carer here.</a>',
+      'More information about being a <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/new-kinship-carer" target="_blank">Kinship Carer here.</a>',
     leaf: true
   },
   'legal-order': {
@@ -81,7 +81,7 @@ const wayfinder = {
 
   'order-link': {
     question:
-      'More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances">legal orders</a>.',
+      'More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances" target="_blank">legal orders</a>.',
     options: [{ answer: 'continue', goto: 'complete-form-1' }]
   },
 
@@ -108,7 +108,7 @@ const wayfinder = {
   },
   'arrangement-link': {
     question:
-      'More information about <a href="https://www.grandparentsplus.org.uk/informal-arrangements">informal arrangements</a>.',
+      'More information about <a href="https://www.grandparentsplus.org.uk/informal-arrangements" target="_blank">informal arrangements</a>.',
     options: [{ answer: 'continue', goto: 'complete-form-4' }]
   },
 
