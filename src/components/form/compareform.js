@@ -90,12 +90,12 @@ export default class Form extends React.Component {
         }
       }
     `;
-    const StyledLabel = styled.label`
+    const Label = styled.label`
       margin: 0.5rem 0 0.2rem 0;
       border: none;
       border-radius: 3px;
     `;
-    const StyledInput = styled.input`
+    const Input = styled.input`
       outline: none;
       padding: 2.5%;
       margin: 0.2rem 0 1.5rem 0;
@@ -137,8 +137,8 @@ export default class Form extends React.Component {
           <Title>
             Request a callback <br />from our Advice Service
           </Title>
-          <StyledLabel htmlFor="name">What is your name?</StyledLabel>
-          <StyledInput
+          <Label htmlFor="name">What is your name?</Label>
+          <Input
             type="text"
             id="name"
             placeholder="eg. Jane Doe"
@@ -146,58 +146,56 @@ export default class Form extends React.Component {
             onChange={this.handleChange}
             autoComplete="off"
           />
-          <StyledLabel htmlFor="telephone">
-            What is your phone number?
-          </StyledLabel>
-          <StyledInput
+          <Label htmlFor="telephone">What is your phone number?</Label>
+          <Input
             type="text"
             id="telephone"
             value={this.state.telephone}
             onChange={this.handleChange}
           />
-          <StyledLabel htmlFor="email">What is your email address?</StyledLabel>
-          <StyledInput
+          <Label htmlFor="email">What is your email address?</Label>
+          <Input
             type="text"
             id="email"
             placeholder="eg. jane@email.com"
             value={this.state.email}
             onChange={this.handleChange}
           />
-          <StyledLabel htmlFor="location">Town/City you live in:</StyledLabel>
-          <StyledInput
+          <Label htmlFor="location">Town/City you live in:</Label>
+          <Input
             type="text"
             id="location"
             value={this.state.location}
             onChange={this.handleChange}
           />
-          <StyledLabel htmlFor="time">
+          <Label htmlFor="time">
             What is the best time for us to reach you?
-          </StyledLabel>
-          <StyledInput
+          </Label>
+          <Input
             type="text"
             id="time"
             value={this.state.time}
             onChange={this.handleChange}
           />
-          <StyledLabel htmlFor="source">How did you hear about us?</StyledLabel>
-          <StyledInput
+          <Label htmlFor="source">How did you hear about us?</Label>
+          <Input
             type="text"
             id="source"
             value={this.state.source}
             onChange={this.handleChange}
           />
           <div>
-            <StyledInput
+            <Input
               type="checkbox"
               id="gdpr"
               value="checked"
               onChange={this.handleChange}
             />
-            <StyledLabel htmlFor="gdpr">
+            <Label htmlFor="gdpr">
               By submitting this form, I agree to my personal information being
               sent to Grandparents Plus for the purposes of contacting me. &#42;
               <span style={{ fontStyle: 'italic' }}>required</span>
-            </StyledLabel>
+            </Label>
           </div>
 
           <Button type="submit">Submit</Button>
