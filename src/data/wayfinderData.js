@@ -74,12 +74,17 @@ const wayfinder = {
   'select-type': {
     question: 'Please select the type of legal order below',
     options: [
-      { answer: 'Special Guardianship Order (SGO)', goto: 'order-link' },
-      { answer: 'Child Arrangement Order (CAO)', goto: 'order-link' }
+      { answer: 'Special Guardianship Order (SGO)', goto: 'order-link-sgo' },
+      { answer: 'Child Arrangement Order (CAO)', goto: 'order-link-cao' }
     ]
   },
 
-  'order-link': {
+  'order-link-sgo': {
+    question:
+      'More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances">legal orders</a>.',
+    options: [{ answer: 'continue', goto: 'complete-form-1' }]
+  },
+  'order-link-cao': {
     question:
       'More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances" target="_blank" onclick="alert(\'This link will now open in a new window\')">legal orders</a>.',
     options: [{ answer: 'continue', goto: 'complete-form-1' }]
