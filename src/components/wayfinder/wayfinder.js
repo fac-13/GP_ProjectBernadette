@@ -57,6 +57,14 @@ export default class Wayfinder extends React.Component {
     );
   };
 
+  scrollToBottom = () => {
+    this.questionListEnd.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   render() {
     const Wrapper = styled.div`
       display: flex;
@@ -90,7 +98,14 @@ export default class Wayfinder extends React.Component {
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
-        <QuestionUL>{this.questionList()}</QuestionUL>
+        <QuestionUL>
+          {this.questionList()}
+          <div
+            ref={el => {
+              this.questionListEnd = el;
+            }}
+          />
+        </QuestionUL>
       </Wrapper>
     );
   }
