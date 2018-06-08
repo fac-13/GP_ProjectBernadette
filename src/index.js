@@ -5,8 +5,8 @@ import './css/global-styles';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-window.addEventListener("beforeunload", function (e) {
-    var confirmationMessage = "Refreshing will lose your data, continue?";
-    e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
-    return confirmationMessage;              // Gecko, WebKit, Chrome <34
-  });
+window.addEventListener('beforeunload', function(e) {
+  var confirmationMessage = 'Refreshing will lose your data, continue?';
+  e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+  return confirmationMessage; // Gecko, WebKit, Chrome <34
+});
