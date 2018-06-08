@@ -50,13 +50,20 @@ export default class Wayfinder extends React.Component {
             />
           );
         })}
-        <Form usersPath={usersPath} />
-        {/* {usersPath.some(string => formRegex.test(string)) && (
+        {usersPath.some(string => formRegex.test(string)) && (
           <Form usersPath={usersPath} />
-        )} */}
+        )}
       </div>
     );
   };
+
+  scrollToBottom = () => {
+    this.questionListEnd.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
 
   render() {
     const Wrapper = styled.div`
@@ -91,7 +98,14 @@ export default class Wayfinder extends React.Component {
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
-        <QuestionUL>{this.questionList()}</QuestionUL>
+        <QuestionUL>
+          {this.questionList()}
+          <div
+            ref={el => {
+              this.questionListEnd = el;
+            }}
+          />
+        </QuestionUL>
       </Wrapper>
     );
   }
