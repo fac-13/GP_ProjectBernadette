@@ -50,9 +50,10 @@ export default class Wayfinder extends React.Component {
             />
           );
         })}
-        {usersPath.some(string => formRegex.test(string)) && (
+        <Form usersPath={usersPath} />
+        {/* {usersPath.some(string => formRegex.test(string)) && (
           <Form usersPath={usersPath} />
-        )}
+        )} */}
       </div>
     );
   };
