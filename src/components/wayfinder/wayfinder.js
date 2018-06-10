@@ -60,6 +60,9 @@ export default class Wayfinder extends React.Component {
   scrollToBottom = () => {
     this.questionListEnd.scrollIntoView({ behavior: 'smooth' });
   };
+  componentDidMount() {
+    this.scrollToBottom();
+  }
 
   componentDidUpdate() {
     this.scrollToBottom();
