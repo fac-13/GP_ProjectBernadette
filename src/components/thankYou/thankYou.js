@@ -5,7 +5,13 @@ const ThankYouStyles = styled.div`
   background-color: ${props => props.theme.color.yellow};
   padding: 0% 5%;
   margin: 0 10%;
-  line-height: 1.3rem;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 5px;
+`;
+
+const ThankYouLink = styled.a`
+  color: #35545d;
 `;
 
 const ThankYou = () => {
@@ -16,9 +22,9 @@ const ThankYou = () => {
         working days.
       </p>
       <p>
-        <a href="https://www.grandparentsplus.org.uk/">
+        <ThankYouLink href="https://www.grandparentsplus.org.uk/">
           Click here to return to the Grandparents Plus website.
-        </a>
+        </ThankYouLink>
       </p>
     </ThankYouStyles>
   );
