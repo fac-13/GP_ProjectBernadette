@@ -11,6 +11,7 @@ const Item = styled.li`
 `;
 
 export default class QAContainer extends React.Component {
+  //setTimeout allows for smooth scroll to finish before the focus takes place
   componentDidMount() {
     setTimeout(() => {
       this.newItem.focus();
