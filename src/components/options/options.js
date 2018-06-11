@@ -20,22 +20,39 @@ const ButtonStyle = styled.button`
     props.active ? props.theme.color.graymid : props.theme.color.yellow};
   border-style: none;
   border-radius: 5px;
-  font-family: Evenfall;
-  font-size: 4rem;
+  font-family: ${props =>
+    props.children.length > 12 ? 'Raleway, Arial, sans-serif' : 'Evenfall'};
+  font-size: ${props => (props.children.length > 12 ? '1.7rem' : '4rem')};
+  font-weight: ${props =>
+    props.children.length > 12 ? props.theme.weight.link : ''};
+  margin: ${props => (props.children.length > 12 ? '0 1rem' : '')};
+  padding: ${props => (props.children.length > 12 ? '2.1rem 2rem' : '0 2rem')};
   height: 7rem;
-  width: 7rem;
+  min-width: 4rem;
+  min-height: fit-content;
+  width: fit-content;
 `;
 
-const Button = ({ answer, goto, clickHandler, dataKey, selectedPath}) => {
-  if (selectedPath != dataKey && selectedPath != null){
+const Button = ({ answer, goto, clickHandler, dataKey, selectedPath }) => {
+  if (selectedPath != dataKey && selectedPath != null) {
     return (
-      <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={true}>
+      <ButtonStyle
+        onClick={clickHandler}
+        data-goto={goto}
+        data-key={dataKey}
+        active={true}
+      >
         {answer}
       </ButtonStyle>
     );
   } else {
     return (
-      <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={false}>
+      <ButtonStyle
+        onClick={clickHandler}
+        data-goto={goto}
+        data-key={dataKey}
+        active={false}
+      >
         {answer}
       </ButtonStyle>
     );
@@ -44,9 +61,16 @@ const Button = ({ answer, goto, clickHandler, dataKey, selectedPath}) => {
 
 function Options({ options, clickHandler, selectedPath }) {
   const optionList = () => {
-
     return options.map((option, i) => {
-      return <Button clickHandler={clickHandler} {...option} key={i} dataKey={i} selectedPath={selectedPath} />;
+      return (
+        <Button
+          clickHandler={clickHandler}
+          {...option}
+          key={i}
+          dataKey={i}
+          selectedPath={selectedPath}
+        />
+      );
     });
   };
 
