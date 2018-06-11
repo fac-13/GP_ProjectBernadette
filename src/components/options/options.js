@@ -58,7 +58,7 @@ const Button = ({ answer, goto, clickHandler, dataKey, selectedPath }) => {
   );
 };
 
-function Options({ options, clickHandler, selectedPath }) {
+const Options = ({ options, clickHandler, selectedPath }) => {
   const optionList = () => {
     return options.map((option, i) => {
       return (
@@ -78,6 +78,6 @@ function Options({ options, clickHandler, selectedPath }) {
       <ButtonsList>{optionList()}</ButtonsList>
     </OptionsWrapper>
   );
-}
+};
 
 export default Options;
