@@ -32,6 +32,16 @@ const ButtonStyle = styled.button`
   min-width: 4rem;
   min-height: fit-content;
   width: fit-content;
+  @media (max-width: 400px) {
+    font-size: ${props => (props.children.length > 12 ? '1.4rem' : '3.4rem')};
+    min-width: ${props => (props.children.length > 12 ? '3.2rem' : '3rem')};
+    padding: ${props =>
+      props.children.length > 12 ? '.7rem .7rem' : '0 2rem'};
+    font-size: ${props => (props.children.length > 12 ? '1.1rem' : '2.8rem')};
+    margin: ${props => (props.children.length > 10 ? '1rem 0.5rem' : '1rem')};
+    min-height: fit-content;
+    width: fit-content;
+  }
 `;
 
 const Button = ({ answer, goto, clickHandler, dataKey, selectedPath }) => {
