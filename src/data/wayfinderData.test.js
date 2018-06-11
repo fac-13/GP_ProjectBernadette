@@ -1,8 +1,10 @@
 import wayfinder from './wayfinderData';
 
-// as we continue to modify the json object, this test will verify that it is still in working order
-// console logs kept to help debug where the test fails in case of failure
-// if test fails, uncomment the console logs
+/*
+As we continue to modify the json object, this test will verify that it is still in working order by walking the node tree of the object, checking every node is accounted for.
+Console.logs have been kept to help debug where the test fails in case of failure. If test fails, uncomment the console.logs to see where the treeWalker function stalls.
+*/
+
 test('Test JSON data for flowchart contains no errors', () => {
   function treeWalker(node) {
     if (node.leaf) {
