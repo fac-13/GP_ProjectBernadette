@@ -7,7 +7,7 @@ const OptionsWrapper = styled.div`
   justify-content: center;
 `;
 
-const ButtonsList = styled.ul`
+const ButtonsList = styled.div`
   padding: 0;
   margin: 2rem 0;
   width: 100%;
