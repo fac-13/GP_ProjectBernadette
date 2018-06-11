@@ -34,29 +34,17 @@ const ButtonStyle = styled.button`
 `;
 
 const Button = ({ answer, goto, clickHandler, dataKey, selectedPath }) => {
-  if (selectedPath != dataKey && selectedPath != null) {
-    return (
-      <ButtonStyle
-        onClick={clickHandler}
-        data-goto={goto}
-        data-key={dataKey}
-        active={true}
-      >
-        {answer}
-      </ButtonStyle>
-    );
-  } else {
-    return (
-      <ButtonStyle
-        onClick={clickHandler}
-        data-goto={goto}
-        data-key={dataKey}
-        active={false}
-      >
-        {answer}
-      </ButtonStyle>
-    );
-  }
+  const isActive = selectedPath != dataKey && selectedPath != null;
+  return (
+    <ButtonStyle
+      onClick={clickHandler}
+      data-goto={goto}
+      data-key={dataKey}
+      active={isActive}
+    >
+      {answer}
+    </ButtonStyle>
+  );
 };
 
 function Options({ options, clickHandler, selectedPath }) {
