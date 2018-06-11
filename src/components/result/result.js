@@ -14,18 +14,23 @@ const StyledResult = styled.p`
   font-weight: ${props => props.theme.weight.body};
 `;
 
-function Result({ result }) {
-  function createMarkup() {
-    return { __html: result };
-  }
+const Result = ({ result, link, linkText }) => {
   return (
     <Div>
-      <StyledResult
-        data-testid="result"
-        dangerouslySetInnerHTML={createMarkup()}
-      />
+      <StyledResult data-testid="result">
+        {result}
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            onClick={() => alert('This link will now open in a new tab')}
+          >
+            {linkText}
+          </a>
+        ) : null}
+      </StyledResult>
     </Div>
   );
-}
+};
 
 export default Result;
