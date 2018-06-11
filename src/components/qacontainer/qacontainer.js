@@ -8,7 +8,7 @@ const Item = styled.li`
   list-style: none;
 `;
 
-function QAContainer(props) {
+const QAContainer = props => {
   const { question, options, result, link, linkText, leaf } = props.qablock;
   return (
     <Item>
@@ -26,6 +26,6 @@ function QAContainer(props) {
       )}
     </Item>
   );
-}
+};
 
 export default QAContainer;
