@@ -12,12 +12,9 @@ const Item = styled.li`
 
 export default class QAContainer extends React.Component {
   componentDidMount() {
-    // console.log(this.newItem);
-    if (this.newItem !== undefined) {
-      setTimeout(() => {
-        this.newItem.focus();
-      }, 400);
-    }
+    setTimeout(() => {
+      this.newItem.focus();
+    }, 400);
   }
 
   render() {
