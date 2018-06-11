@@ -18,7 +18,14 @@ export default class QAContainer extends React.Component {
   }
 
   render() {
-    const { question, options, result, leaf } = this.props.qablock;
+    const {
+      question,
+      options,
+      result,
+      leaf,
+      link,
+      linkText
+    } = this.props.qablock;
 
     return (
       <Item
@@ -28,10 +35,10 @@ export default class QAContainer extends React.Component {
         }}
       >
         {leaf ? (
-          <Result result={result} />
+          <Result result={result} link={link} linkText={linkText} />
         ) : (
           <React.Fragment>
-            <Question question={question} />
+            <Question question={question} link={link} linkText={linkText} />
             <Options
               options={options}
               clickHandler={this.props.clickHandler}
