@@ -25,7 +25,6 @@ const Question = ({ question, link, linkText }) => {
             target="_blank"
             onClick={() => alert('This link will now open in a new tab')}
           >
-            {' '}
             {linkText}
           </a>
         ) : null}

@@ -27,7 +27,7 @@ describe('Test QA container', () => {
 
     const result = getByTestId('result');
     expect(result.textContent).toBe(
-      'More information about  lost or denied contact.'
+      'More information about lost or denied contact.'
     );
   });
 });
