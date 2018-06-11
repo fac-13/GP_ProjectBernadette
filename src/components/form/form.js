@@ -131,7 +131,6 @@ export default class Form extends React.Component {
   };
 
   handleChange = event => {
-    console.log(event.target.id, event.target.value);
     const id = event.target.id;
     const value = event.target.value;
     this.setState({
@@ -140,11 +139,12 @@ export default class Form extends React.Component {
   };
 
   handleSubmit = event => {
+    const { clearPath } = this.props;
     event.preventDefault();
 
     const userResponseData = this.generateUserResponseDataFromPath();
-    //TODO state and userResponseData needs to be sent to the server.
-    console.log(this.state, userResponseData);
+    // TODO state and userResponseData needs to be sent to the server.
+    clearPath();
   };
 
   render() {

@@ -4,6 +4,7 @@ import content from '../../data/wayfinderData.js';
 import QAContainer from '../qacontainer/qacontainer';
 import Form from '../form/form';
 import findKey from '../../utils/findKey';
+import ThankYou from '../thankYou/thankYou';
 
 const Wrapper = styled.div`
   display: flex;
@@ -90,6 +91,14 @@ export default class Wayfinder extends React.Component {
     this.scrollToBottom();
   }
 
+  // function to clear path, passed to form
+  clearUsersPath = () => {
+    this.setState({
+      usersPath: [],
+      selectedPath: []
+    });
+  };
+
   render() {
     const { usersPath } = this.state;
     const formRegex = /complete-form/g;
@@ -105,8 +114,9 @@ export default class Wayfinder extends React.Component {
           />
         </QuestionListContainer>
         {usersPath.some(string => formRegex.test(string)) ? (
-          <Form usersPath={usersPath} />
+          <Form usersPath={usersPath} clearPath={this.clearUsersPath} />
         ) : null}
+        {this.state.usersPath.length === 0 && <ThankYou />}
       </Wrapper>
     );
   }
