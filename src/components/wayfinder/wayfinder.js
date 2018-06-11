@@ -51,7 +51,7 @@ export default class Wayfinder extends React.Component {
           );
         })}
         {usersPath.some(string => formRegex.test(string)) && (
-          <Form usersPath={usersPath} />
+          <Form usersPath={usersPath} clearPath={this.clearUsersPath} />
         )}
       </div>
     );
@@ -64,6 +64,14 @@ export default class Wayfinder extends React.Component {
   componentDidUpdate() {
     this.scrollToBottom();
   }
+
+  // function to clear path, passed to form
+  clearUsersPath = () => {
+    this.setState({
+      usersPath: [],
+      selectedPath: []
+    });
+  };
 
   render() {
     const Wrapper = styled.div`

@@ -50,9 +50,11 @@ export default class Form extends React.Component {
   };
 
   handleSubmit = event => {
+    const { clearPath } = this.props;
     event.preventDefault();
     const userResponseData = this.generateUserResponseDataFromPath();
     //TODO state and userResponseData needs to be sent to the server.
+    clearPath();
     console.log(this.state, userResponseData);
   };
 
