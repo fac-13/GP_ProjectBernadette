@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const StyledForm = styled.form`
   padding: 1.5rem 3rem 2rem 3rem;
-  margin-top: 2rem;
+  margin: 0 2rem 0 2rem;
   background-color: ${props => props.theme.color.orange};
   border: none;
   border-radius: 5px;

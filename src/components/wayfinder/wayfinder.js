@@ -5,6 +5,35 @@ import QAContainer from '../qacontainer/qacontainer';
 import Form from '../form/form';
 import findKey from '../../utils/findKey';
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 600px;
+  min-height: 100vh;
+
+  background-color: ${props => props.theme.color.white};
+  font-family: 'Raleway', 'Arial', sans-serif;
+  font-weight: ${props => props.theme.weight.body};
+`;
+const Title = styled.h1`
+  color: ${props => props.theme.color.orange};
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 4rem;
+  font-family: Evenfall, 'Raleway', 'Arial', sans-serif;
+  margin: 3rem 0rem 1rem 0rem;
+  @media (max-width: 400px) {
+    font-size: 3.4rem;
+    letter-spacing: 0px;
+  }
+`;
+const QuestionListContainer = styled.ul`
+  padding: 1rem;
+  width: 90%;
+`;
+
 export default class Wayfinder extends React.Component {
   constructor(props) {
     super(props);
@@ -36,10 +65,9 @@ export default class Wayfinder extends React.Component {
 
   questionList = () => {
     const { content, usersPath, selectedPath } = this.state;
-    const formRegex = /complete-form/g;
 
     return (
-      <div>
+      <React.Fragment>
         {usersPath.map((item, i) => {
           return (
             <QAContainer
@@ -50,10 +78,7 @@ export default class Wayfinder extends React.Component {
             />
           );
         })}
-        {usersPath.some(string => formRegex.test(string)) && (
-          <Form usersPath={usersPath} />
-        )}
-      </div>
+      </React.Fragment>
     );
   };
 
@@ -66,46 +91,22 @@ export default class Wayfinder extends React.Component {
   }
 
   render() {
-    const Wrapper = styled.div`
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 auto;
-      max-width: 600px;
-      min-height: 100vh;
-
-      background-color: ${props => props.theme.color.white};
-      font-family: 'Raleway', 'Arial', sans-serif;
-      font-weight: ${props => props.theme.weight.body};
-    `;
-    const Title = styled.h1`
-      color: ${props => props.theme.color.orange};
-      text-align: center;
-      letter-spacing: 2px;
-      font-size: 4rem;
-      font-family: Evenfall, 'Raleway', 'Arial', sans-serif;
-      margin: 3rem 0rem 1rem 0rem;
-      @media (max-width: 400px) {
-        font-size: 3.4rem;
-        letter-spacing: 0px;
-      }
-    `;
-    const QuestionUL = styled.ul`
-      padding: 1rem;
-      width: 90%;
-    `;
-
+    const { usersPath } = this.state;
+    const formRegex = /complete-form/g;
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
-        <QuestionUL>
+        <QuestionListContainer>
           {this.questionList()}
           <div
             ref={el => {
               this.questionListEnd = el;
             }}
           />
-        </QuestionUL>
+        </QuestionListContainer>
+        {usersPath.some(string => formRegex.test(string)) ? (
+          <Form usersPath={usersPath} />
+        ) : null}
       </Wrapper>
     );
   }
