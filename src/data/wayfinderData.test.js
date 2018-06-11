@@ -6,7 +6,7 @@ Console.logs have been kept to help debug where the test fails in case of failur
 */
 
 test('Test JSON data for flowchart contains no errors', () => {
-  function treeWalker(node) {
+  const treeWalker = node => {
     if (node.leaf) {
       // console.log('result:', node.result);
       return;
@@ -16,7 +16,7 @@ test('Test JSON data for flowchart contains no errors', () => {
       // console.log(obj.answer);
       treeWalker(wayfinder[obj.goto]);
     });
-  }
+  };
   // treeWalker(wayfinder.start);
   expect(() => {
     treeWalker(wayfinder.start);
