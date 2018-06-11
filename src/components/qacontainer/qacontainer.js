@@ -9,15 +9,19 @@ const Item = styled.li`
 `;
 
 function QAContainer(props) {
-  const { question, options, result, leaf} = props.qablock;
+  const { question, options, result, link, linkText, leaf } = props.qablock;
   return (
     <Item>
       {leaf ? (
-        <Result result={result} />
+        <Result result={result} link={link} linkText={linkText} />
       ) : (
         <React.Fragment>
-          <Question question={question} />
-          <Options options={options} clickHandler={props.clickHandler} selectedPath={props.selectedPath} />
+          <Question question={question} link={link} linkText={linkText} />
+          <Options
+            options={options}
+            clickHandler={props.clickHandler}
+            selectedPath={props.selectedPath}
+          />
         </React.Fragment>
       )}
     </Item>

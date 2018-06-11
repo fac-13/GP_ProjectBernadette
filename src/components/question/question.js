@@ -14,16 +14,22 @@ const StyledQuestion = styled.p`
   font-weight: ${props => props.theme.weight.body};
 `;
 
-const Question = ({ question }) => {
-  function createMarkup() {
-    return { __html: question };
-  }
+const Question = ({ question, link, linkText }) => {
   return (
     <Div>
-      <StyledQuestion
-        data-testid="question"
-        dangerouslySetInnerHTML={createMarkup()}
-      />
+      <StyledQuestion data-testid="question">
+        {question}
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            onClick={() => alert('This link will now open in a new tab')}
+          >
+            {' '}
+            {linkText}
+          </a>
+        ) : null}
+      </StyledQuestion>
     </Div>
   );
 };

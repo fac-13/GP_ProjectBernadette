@@ -21,11 +21,13 @@ describe('Test QA container', () => {
   test('QA container renders results properly', () => {
     const { getByTestId } = renderIntoDocument(
       <ThemeProvider theme={gpTheme}>
-        <QAContainer qablock={content['info-gen']} />
+        <QAContainer qablock={content['info-lost-contact']} />
       </ThemeProvider>
     );
 
     const result = getByTestId('result');
-    expect(result.textContent).toBe('More information about our services');
+    expect(result.textContent).toBe(
+      'More information about  lost or denied contact.'
+    );
   });
 });
