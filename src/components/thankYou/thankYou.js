@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ThankYouStyles = styled.div`
+const StyledThankYou = styled.div`
   background-color: ${props => props.theme.color.yellow};
   padding: 0% 5%;
   margin: 0 10%;
@@ -11,23 +11,23 @@ const ThankYouStyles = styled.div`
   text-align: center;
 `;
 
-const ThankYouLink = styled.a`
+const StyledThankYouLink = styled.a`
   color: #35545d;
 `;
 
 const ThankYou = () => {
   return (
-    <ThankYouStyles>
+    <StyledThankYou>
       <p>
         Thank you for submitting the form! You should hear back from us in 3
         working days.
       </p>
       <p>
-        <ThankYouLink href="https://www.grandparentsplus.org.uk/">
+        <StyledThankYouLink href="https://www.grandparentsplus.org.uk/">
           Return to the Grandparents Plus website.
-        </ThankYouLink>
+        </StyledThankYouLink>
       </p>
-    </ThankYouStyles>
+    </StyledThankYou>
   );
 };
 
