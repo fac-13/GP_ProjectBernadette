@@ -8,6 +8,7 @@ const ThankYouStyles = styled.div`
   font-size: 18px;
   line-height: 25px;
   border-radius: 5px;
+  text-align: center;
 `;
 
 const ThankYouLink = styled.a`
@@ -23,7 +24,7 @@ const ThankYou = () => {
       </p>
       <p>
         <ThankYouLink href="https://www.grandparentsplus.org.uk/">
-          Click here to return to the Grandparents Plus website.
+          Return to the Grandparents Plus website.
         </ThankYouLink>
       </p>
     </ThankYouStyles>
