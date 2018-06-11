@@ -14,7 +14,8 @@ const gpTheme = {
   weight: {
     lead: '900',
     link: '700',
-    body: '600'
+    body: '600',
+    light: '400'
   }
 };
 

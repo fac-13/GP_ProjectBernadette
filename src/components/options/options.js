@@ -18,35 +18,58 @@ const ButtonsList = styled.ul`
 const ButtonStyle = styled.button`
   background-color: ${props =>
     props.active ? props.theme.color.graymid : props.theme.color.yellow};
+  color: ${props => props.theme.color.navy};
   border-style: none;
   border-radius: 5px;
-  font-family: Evenfall;
-  font-size: 4rem;
+  font-family: ${props =>
+    props.children.length > 12 ? 'Raleway, Arial, sans-serif' : 'Evenfall'};
+  font-size: ${props => (props.children.length > 12 ? '1.7rem' : '4rem')};
+  font-weight: ${props =>
+    props.children.length > 12 ? props.theme.weight.link : ''};
+  margin: ${props => (props.children.length > 12 ? '0 1rem' : '')};
+  padding: ${props => (props.children.length > 12 ? '2.1rem 2rem' : '0 2rem')};
   height: 7rem;
-  width: 7rem;
+  min-width: 4rem;
+  min-height: fit-content;
+  width: fit-content;
+  @media (max-width: 400px) {
+    font-size: ${props => (props.children.length > 12 ? '1.4rem' : '3.4rem')};
+    min-width: ${props => (props.children.length > 12 ? '3.2rem' : '3rem')};
+    padding: ${props =>
+      props.children.length > 12 ? '.7rem .7rem' : '0 2rem'};
+    font-size: ${props => (props.children.length > 12 ? '1.1rem' : '2.8rem')};
+    margin: ${props => (props.children.length > 10 ? '1rem 0.5rem' : '1rem')};
+    min-height: fit-content;
+    width: fit-content;
+  }
 `;
 
-const Button = ({ answer, goto, clickHandler, dataKey, selectedPath}) => {
-  if (selectedPath != dataKey && selectedPath != null){
-    return (
-      <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={true}>
-        {answer}
-      </ButtonStyle>
-    );
-  } else {
-    return (
-      <ButtonStyle onClick={clickHandler} data-goto={goto} data-key={dataKey} active={false}>
-        {answer}
-      </ButtonStyle>
-    );
-  }
+const Button = ({ answer, goto, clickHandler, dataKey, selectedPath }) => {
+  const isActive = selectedPath != dataKey && selectedPath != null;
+  return (
+    <ButtonStyle
+      onClick={clickHandler}
+      data-goto={goto}
+      data-key={dataKey}
+      active={isActive}
+    >
+      {answer}
+    </ButtonStyle>
+  );
 };
 
-function Options({ options, clickHandler, selectedPath }) {
+const Options = ({ options, clickHandler, selectedPath }) => {
   const optionList = () => {
-
     return options.map((option, i) => {
-      return <Button clickHandler={clickHandler} {...option} key={i} dataKey={i} selectedPath={selectedPath} />;
+      return (
+        <Button
+          clickHandler={clickHandler}
+          {...option}
+          key={i}
+          dataKey={i}
+          selectedPath={selectedPath}
+        />
+      );
     });
   };
 
@@ -55,6 +78,6 @@ function Options({ options, clickHandler, selectedPath }) {
       <ButtonsList>{optionList()}</ButtonsList>
     </OptionsWrapper>
   );
-}
+};
 
 export default Options;
