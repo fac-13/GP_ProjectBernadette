@@ -1,4 +1,18 @@
-const alertMsg = "onclick=\"alert('This link will now open in a new tab')\""
+/* 
+This is the content for the Wayfinder questions and answer options.
+
+The user's responses are logged via the options.goto value in Wayfinder.state.usersPath. 
+
+Every options.goto value must be UNIQUE. When ammending the data, please keep this in mind. The wayfinderData.test will throw an error if there are any resulting errors. 
+
+Every unique result ending in a FORM component must have a unique 'complete-form' goto.value (ie 'complete-form2', 'complete-form3' etc.)
+
+Stubs with no further questions are marked as 'leaf' (In the flow chart tree, a leaf is a stub that has no possible further branches.)
+*/
+
+const alertMsg = 'onclick="alert(\'This link will now open in a new tab\')"';
+const formMsg =
+  'If you require further advice and support, please complete the form below and we will contact you within 3 working days.';
 
 const wayfinder = {
   start: {
@@ -44,18 +58,15 @@ const wayfinder = {
     ]
   },
   'info-gen': {
-    result:
-      `More information about <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/advice-and-information#" target="_blank" ${alertMsg}>our services</a>`,
+    result: `More information about <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/advice-and-information#" target="_blank" ${alertMsg}>our services</a>`,
     leaf: true
   },
   'info-lost-contact': {
-    result:
-      `More information about <a href="https://www.grandparentsplus.org.uk/what-you-can-do" target="_blank" ${alertMsg}>lost or denied contact</a>`,
+    result: `More information about <a href="https://www.grandparentsplus.org.uk/what-you-can-do" target="_blank" ${alertMsg}>lost or denied contact</a>`,
     leaf: true
   },
   'info-kc': {
-    result:
-      `More information about being a <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/new-kinship-carer" target="_blank" ${alertMsg}>Kinship Carer here.</a>`,
+    result: `More information about being a <a href="https://www.grandparentsplus.org.uk/pages/faqs/category/new-kinship-carer" target="_blank" ${alertMsg}>Kinship Carer here.</a>`,
     leaf: true
   },
   'legal-order': {
@@ -82,13 +93,11 @@ const wayfinder = {
   },
 
   'order-link-sgo': {
-    question:
-      `More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances" target="_blank" ${alertMsg}>legal orders</a>.`,
+    question: `More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances" target="_blank" ${alertMsg}>legal orders</a>.`,
     options: [{ answer: 'continue', goto: 'complete-form-1' }]
   },
   'order-link-cao': {
-    question:
-      `More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances" target="_blank" ${alertMsg}>legal orders</a>.`,
+    question: `More information about <a href="https://www.grandparentsplus.org.uk/local-authority-allowances" target="_blank" ${alertMsg}>legal orders</a>.`,
     options: [{ answer: 'continue', goto: 'complete-form-1' }]
   },
 
@@ -114,34 +123,28 @@ const wayfinder = {
     ]
   },
   'arrangement-link': {
-    question:
-      `More information about <a href="https://www.grandparentsplus.org.uk/informal-arrangements" target="_blank"  ${alertMsg}>informal arrangements</a>.`,
+    question: `More information about <a href="https://www.grandparentsplus.org.uk/informal-arrangements" target="_blank"  ${alertMsg}>informal arrangements</a>.`,
     options: [{ answer: 'continue', goto: 'complete-form-4' }]
   },
 
   'complete-form': {
-    result:
-      'If you require further advice and support, please complete the form below and we will contact you within 3 working days.',
+    result: `${formMsg}`,
     leaf: true
   },
   'complete-form-1': {
-    result:
-      'If you require further advice and support, please complete the form below and we will contact you within 3 working days.',
+    result: `${formMsg}`,
     leaf: true
   },
   'complete-form-2': {
-    result:
-      'If you require further advice and support, please complete the form below and we will contact you within 3 working days.',
+    result: `${formMsg}`,
     leaf: true
   },
   'complete-form-3': {
-    result:
-      'If you require further advice and support, please complete the form below and we will contact you within 3 working days.',
+    result: `${formMsg}`,
     leaf: true
   },
   'complete-form-4': {
-    result:
-      'If you require further advice and support, please complete the form below and we will contact you within 3 working days.',
+    result: `${formMsg}`,
     leaf: true
   }
 };
