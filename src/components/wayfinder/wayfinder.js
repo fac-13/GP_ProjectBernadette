@@ -4,6 +4,7 @@ import content from '../../data/wayfinderData.js';
 import QAContainer from '../qacontainer/qacontainer';
 import Form from '../form/form';
 import findKey from '../../utils/findKey';
+import ThankYou from '../thankYou/thankYou';
 
 export default class Wayfinder extends React.Component {
   constructor(props) {
@@ -114,6 +115,7 @@ export default class Wayfinder extends React.Component {
             }}
           />
         </QuestionUL>
+        {this.state.usersPath.length === 0 && <ThankYou />}
       </Wrapper>
     );
   }
