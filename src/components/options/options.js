@@ -18,6 +18,7 @@ const ButtonsList = styled.ul`
 const ButtonStyle = styled.button`
   background-color: ${props =>
     props.active ? props.theme.color.graymid : props.theme.color.yellow};
+  color: ${props => props.theme.color.navy};
   border-style: none;
   border-radius: 5px;
   font-family: ${props =>
