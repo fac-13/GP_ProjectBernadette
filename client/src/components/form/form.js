@@ -149,7 +149,7 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <StyledForm action="/send" onSubmit={this.handleSubmit}>
+      <StyledForm onSubmit={this.handleSubmit}>
         <Title>
           Request a callback <br />from our Advice Service
         </Title>
