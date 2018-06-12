@@ -1,12 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/app';
-import './css/global-styles';
+const express = require('express');
+const path = require('path');
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const localhost = process.env.HOST || 'localhost';
+const port = process.env.PORT || 3000;
 
-window.addEventListener('beforeunload', e => {
-  var confirmationMessage = 'Refreshing will lose your data, continue?';
-  e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
-  return confirmationMessage; // Gecko, WebKit, Chrome <34
+const app = express();
+
+app.disable('x-powered-by');
+app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+
+app.listen(port, () => {
+  console.log(`My Wayfinder is running on http://${localhost}:${port}`);
 });
