@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import leftPath from '../../assets/leftpath.svg';
-import rigthPath from '../../assets/rightpath.svg';
+import LeftPath from '../leftPath/leftPath';
+import RightPath from '../rightPath/rightPath';
 
 const QuestionWrapper = styled.div`
   width: 250px;
@@ -23,21 +23,6 @@ const StyledQuestion = styled.p`
   font-size: 1.5rem;
   font-weight: ${props => props.theme.weight.body};
 `;
-const StyledPathL = styled.img`
-  position: relative;
-  left: 3%;
-  @media (min-width: 400px) {
-    left: 8%;
-  }
-`;
-
-const StyledPathR = styled.img`
-  position: relative;
-  right: -21%;
-  @media (min-width: 400px) {
-    right: -31%;
-  }
-`;
 
 const Question = ({ question, link, linkText }) => {
   return (
@@ -56,8 +41,8 @@ const Question = ({ question, link, linkText }) => {
           ) : null}
         </StyledQuestion>
       </StyledDiv>
-      <StyledPathL src={`${leftPath}`} alt="a path" />
-      <StyledPathR src={`${rigthPath}`} alt="a path" />
+      <LeftPath />
+      <RightPath />
     </QuestionWrapper>
   );
 };
