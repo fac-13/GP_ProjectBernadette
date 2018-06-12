@@ -13,6 +13,12 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
+app.post('/send', (req, res) => {
+  // recieve form data and send to GP as an email
+  // package? nodemailer
+  return;
+});
+
 app.listen(port, () => {
   console.log(`My Wayfinder is running on http://${localhost}:${port}`);
 });
