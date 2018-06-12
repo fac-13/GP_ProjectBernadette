@@ -43,7 +43,12 @@ export default class QAContainer extends React.Component {
           <Result result={result} link={link} linkText={linkText} />
         ) : (
           <React.Fragment>
-            <Question question={question} link={link} linkText={linkText} />
+            <Question
+              question={question}
+              link={link}
+              linkText={linkText}
+              selectedPath={this.props.selectedPath}
+            />
             <Options
               options={options}
               clickHandler={this.props.clickHandler}

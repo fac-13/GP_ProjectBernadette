@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LeftPath from '../leftPath/leftPath';
 import RightPath from '../rightPath/rightPath';
+import gpTheme from '../../css/theme';
 
 const QuestionWrapper = styled.div`
   width: 250px;
@@ -24,7 +25,7 @@ const StyledQuestion = styled.p`
   font-weight: ${props => props.theme.weight.body};
 `;
 
-const Question = ({ question, link, linkText }) => {
+const Question = ({ question, link, linkText, selectedPath }) => {
   return (
     <QuestionWrapper>
       <StyledDiv>
@@ -41,8 +42,12 @@ const Question = ({ question, link, linkText }) => {
           ) : null}
         </StyledQuestion>
       </StyledDiv>
-      <LeftPath />
-      <RightPath />
+      <LeftPath
+        color={selectedPath == '0' ? gpTheme.color.orange : undefined}
+      />
+      <RightPath
+        color={selectedPath == '1' ? gpTheme.color.orange : undefined}
+      />
     </QuestionWrapper>
   );
 };
