@@ -8,6 +8,10 @@ const Item = styled.li`
   list-style: none;
   box-sizing: border-box;
   outline: none;
+  height: fit-content;
+  max-height: 90vh;
+  max-width: 320px;
+  margin: 0 auto;
 `;
 
 export default class QAContainer extends React.Component {

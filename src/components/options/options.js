@@ -5,6 +5,8 @@ const OptionsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: relative;
+  top: -16%;
 `;
 
 const ButtonsList = styled.div`
@@ -34,11 +36,16 @@ const ButtonStyle = styled.button`
   width: fit-content;
   @media (max-width: 400px) {
     font-size: ${props => (props.children.length > 12 ? '1.4rem' : '3.4rem')};
-    min-width: ${props => (props.children.length > 10 ? '3.2rem' : 'fit-content')};
+    min-width: ${props =>
+      props.children.length > 10 ? '3.2rem' : 'fit-content'};
     padding: ${props =>
       /* for length greater than 12, the padding is changed for long lines of text i.e SGO
          for length greater than 10, padding is adjusted for no/notsure, otherwise padding for yes/no */
-      props.children.length > 12 ? '.7rem .7rem' : props.children.length > 10 ? '0' : '0 2rem'}; 
+      props.children.length > 12
+        ? '.7rem .7rem'
+        : props.children.length > 10
+          ? '0'
+          : '0 2rem'};
     font-size: ${props => (props.children.length > 12 ? '1.1rem' : '2.8rem')};
     margin: ${props => (props.children.length > 10 ? '1rem 0.5rem' : '1rem')};
     min-height: fit-content;
