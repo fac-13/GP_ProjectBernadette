@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
+const { sendEmail } = require('./sendEmail.js');
 
 const localhost = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ app.get('*', (req, res) => {
 app.post('/send', (req, res) => {
   // recieve form data and send to GP as an email
   // package? nodemailer
+  sendEmail(null, req.body, null);
   console.log(req.body);
   return;
 });
