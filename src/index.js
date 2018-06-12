@@ -19,7 +19,6 @@ app.get('*', (req, res) => {
 app.post('/send', (req, res) => {
   // recieve form data and send to GP as an email
   // package? nodemailer
-  console.log('received!!');
   console.log(req.body);
   return;
 });

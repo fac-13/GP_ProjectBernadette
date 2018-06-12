@@ -1,5 +1,4 @@
 const postMessage = (endpoint, data) => {
-  console.log('post:', JSON.stringify(data));
   return fetch(endpoint, {
     body: JSON.stringify(data),
     method: 'POST',

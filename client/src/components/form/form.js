@@ -139,12 +139,16 @@ export default class Form extends React.Component {
     });
   };
 
+  // TODO could this be made asyncronous?
   handleSubmit = event => {
     event.preventDefault();
-    const { clearPath } = this.props;
+    const { clearPath } = this.props; // neede to update state and render the ThankYou view
     const userResponseData = this.generateUserResponseDataFromPath();
-    postMessage('/send', userResponseData);
-    // TODO state and userResponseData needs to be sent to the server.
+    const message = {
+      user: this.state,
+      responses: userResponseData
+    };
+    postMessage('/send', message);
     clearPath();
   };
 
