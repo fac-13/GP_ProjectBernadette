@@ -6,6 +6,9 @@ import rigthPath from '../../assets/rightpath.svg';
 const QuestionWrapper = styled.div`
   width: 250px;
   margin: 0 auto;
+  @media (min-width: 400px) {
+    width: 314px;
+  }
 `;
 
 const StyledDiv = styled.div`
@@ -23,11 +26,17 @@ const StyledQuestion = styled.p`
 const StyledPathL = styled.img`
   position: relative;
   left: 3%;
+  @media (min-width: 400px) {
+    left: 8%;
+  }
 `;
 
 const StyledPathR = styled.img`
   position: relative;
   right: -21%;
+  @media (min-width: 400px) {
+    right: -31%;
+  }
 `;
 
 const Question = ({ question, link, linkText }) => {
