@@ -9,7 +9,7 @@ const Item = styled.li`
   box-sizing: border-box;
   outline: none;
   height: fit-content;
-  max-height: 90vh;
+  max-height: 100vh;
   max-width: 320px;
   margin: 0 auto;
 `;
