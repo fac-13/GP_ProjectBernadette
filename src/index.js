@@ -17,12 +17,9 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
+// Receive form data and send to GP as an email
 app.post('/send', (req, res) => {
-  // recieve form data and send to GP as an email
-  // package? nodemailer
-  sendEmail(null, req.body, null);
-  console.log(req.body);
-  return;
+  sendEmail(req.body, null);
 });
 
 app.listen(port, () => {
