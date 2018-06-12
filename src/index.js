@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyparser = require('body-parser');
 
 const localhost = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
@@ -7,6 +8,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.disable('x-powered-by');
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
 app.get('*', (req, res) => {
@@ -16,6 +19,8 @@ app.get('*', (req, res) => {
 app.post('/send', (req, res) => {
   // recieve form data and send to GP as an email
   // package? nodemailer
+  console.log('received!!');
+  console.log(req.body);
   return;
 });
 

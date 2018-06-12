@@ -1,6 +1,7 @@
 import React from 'react';
 import content from '../../data/wayfinderData.js';
 import styled from 'styled-components';
+import postMessage from '../../utils/postMessage';
 
 const StyledForm = styled.form`
   padding: 1.5rem 3rem 2rem 3rem;
@@ -142,6 +143,7 @@ export default class Form extends React.Component {
     event.preventDefault();
     const { clearPath } = this.props;
     const userResponseData = this.generateUserResponseDataFromPath();
+    postMessage('/send', userResponseData);
     // TODO state and userResponseData needs to be sent to the server.
     clearPath();
   };
