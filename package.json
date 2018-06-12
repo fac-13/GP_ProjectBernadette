@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.js",
     "test": "nyc tape src/test/*.test.js | tap-spec",
     "test:coverage": "nyc --reporter=lcov --reporter=text-lcov tape src/test/*.test.js | tap-spec && open -a \"Google Chrome\" ./coverage/lcov-report/index.html",
-    "heroku-postbuild": "cd client && npm run build"
+    "heroku-postbuild": "cd client && npm run build "
   },
   "pre-commit": [
     "test"
