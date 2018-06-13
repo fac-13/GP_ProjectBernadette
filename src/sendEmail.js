@@ -25,7 +25,7 @@ const sendEmail = (msg, error) => {
     from: `${process.env.ACCT_EMAIL}`,
     to: `${process.env.EMAIL_TO}`,
     subject: `My Wayfinder - Request from ${user.name}`,
-    html: `<p>${contactInfo} <br><br> ${responsesString}</p>`
+    html: `<p><strong>Client Contact Information: </strong><br>${contactInfo} <br><br><br> <strong>Client Responses:</strong><br> ${responsesString}</p>`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
