@@ -3,6 +3,7 @@ import Question from '../question/question';
 import Options from '../options/options';
 import Result from '../result/result';
 import styled from 'styled-components';
+import LeftLong from '../leftLong/leftLong';
 
 const Item = styled.li`
   list-style: none;
@@ -54,6 +55,7 @@ export default class QAContainer extends React.Component {
               clickHandler={this.props.clickHandler}
               selectedPath={this.props.selectedPath}
             />
+            <LeftLong />
           </React.Fragment>
         )}
       </Item>
