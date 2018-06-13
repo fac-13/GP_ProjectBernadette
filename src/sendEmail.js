@@ -8,14 +8,24 @@ let transporter = nodemailer.createTransport({
     pass: process.env.ACCT_PASSWORD
   }
 });
-const sendEmail = (subject, msg, error) => {
-  console.log('message:', msg);
+const sendEmail = (msg, error) => {
+  const { user, responses } = msg;
+  const contactInfo = `<strong>Name:</strong> ${user.name}<br> 
+      <strong>Telephone:</strong> ${user.telephone}<br>
+      <strong>Email:</strong>  ${user.email}<br>
+      <strong>Location:</strong> ${user.location}<br>
+      <strong>Best time:</strong> ${user.time}<br>
+      <strong>Source:</strong> ${user.source}<br>
+      <strong>GDPR</strong> ${user.gdpr}
+      `;
+  let responsesString = responses
+    .map(res => `<strong>${res.question}:</strong> ${res.answer}`)
+    .join('<br>');
   let mailOptions = {
     from: `${process.env.ACCT_EMAIL}`,
     to: `${process.env.EMAIL_TO}`,
-    subject: `My Wayfinder - Request from`, //user
-    text: 'hello world',
-    html: '<b>hello world</b>'
+    subject: `My Wayfinder - Request from ${user.name}`,
+    html: `<p>${contactInfo} <br><br> ${responsesString}</p>`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
