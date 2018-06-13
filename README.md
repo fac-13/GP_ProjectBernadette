@@ -2,29 +2,34 @@
 
 An accessible, decision tree web app built to help grandparents and other carers visiting the [Grandparents Plus](https://www.grandparentsplus.org.uk/) website recognize their status as a 'Kinship Carer', guide them to relevant resources, and provide information for an advice callback from the charity.
 
-**View the app development site here:** tbc
+**View the app development site here:** https://my-wayfinder.herokuapp.com/
 
 **How to run locally:**
 
 You will need to run two scripts concurrently for the server and React app respectively.
 
-Clone the repo: 
+Clone the repo:
+
 ```
 $ git clone https://github.com/fac-13/GP_ProjectBernadette.git
-   ```
+```
 
 To build and run the Server:
+
 ```
 $ npm i
 $ npm run start
-   ```
+```
+
 To build and run the React App, open a new terminal window:
+
 ```
 $ cd client
 $ npm i
-$ npm run build 
+$ npm run build
 $ npm run start
-   ```
+```
+
 **For testing the React App:**
 
 ```
@@ -85,16 +90,13 @@ As a user, Bernadette can:
 
 https://invis.io/37JYT43QNUC
 
+![](https://i.imgur.com/wGMgYzh.png)
 
- ![](https://i.imgur.com/wGMgYzh.png)
- 
-How the App might be integrated into the Grandparents Plus website: 
- 
+How the App might be integrated into the Grandparents Plus website:
+
 ![](https://i.imgur.com/RD3c7Cr.png)
 
-
 ## Decision Tree Flow Chart
-
 
 ![](https://i.imgur.com/OUMheGt.png)
 ![](https://i.imgur.com/N6VCddy.png)
