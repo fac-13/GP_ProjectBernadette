@@ -16,6 +16,7 @@ const StyledForm = styled.form`
   @media (max-width: 420px) {
     font-size: 1rem;
     padding: 1.5rem 1.5rem 2rem 1.5rem;
+    margin: 0 1rem 2rem 1rem;
   }
 `;
 const Title = styled.h1`
@@ -23,16 +24,10 @@ const Title = styled.h1`
   font-weight: ${props => props.theme.weight.body};
   text-align: center;
   font-size: 1.5rem;
-
   margin: 0.5rem 0rem 1.5rem 0rem;
   @media (max-width: 420px) {
     font-size: 1.2rem;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    @media (max-width: 420px) {
-      font-size: 1rem;
-      padding: 1rem 1rem 1rem 1rem;
-    }
+    margin: 0.5rem 0rem 2rem 0rem;
   }
 `;
 const Label = styled.label`
@@ -40,14 +35,43 @@ const Label = styled.label`
 `;
 const Input = styled.input`
 outline: none;
-padding: ${props => (props.checkbox ? '.0%' : '2.5%')}
-margin: ${props => (props.checkbox ? '.7rem 0 1.8rem 0;' : '.7rem 0 1.8rem 0;')}
+padding: 2.5%;
+margin: .7rem 0 1.8rem 0;
+width: 93%
+height: 2rem;
+color: ${props => props.theme.color.graydark};
+border: none; 
+border-radius: 1px;
+font-size: 1.2rem;
+letter-spacing: 1px;
+
+@media (max-width: 420px) {
+  font-size: 1rem;
+}
+
+&::placeholder  {
+  color: ${props => props.theme.color.graylight};
+}
+&:focus,
+&:hover {
+  outline: solid 5px;
+  outline-color: ${props => props.theme.color.yellow};
+}
+&:active {
+  outline: none;
+}
+`;
+
+const Checkbox = styled.input`
+outline: none;
+padding: 0;
+margin: .7rem 0 1.8rem 0;
 width: 93%
 height: 2rem;
 color: ${props => props.theme.color.graydark};
 border: solid 5px transparent; 
 border-radius: 3px;
-font-size: ${props => (props.checkbox ? '3rem' : '1.2rem')}
+font-size: 3rem;
 letter-spacing: 1px;
 
 @media (max-width: 420px) {
@@ -58,14 +82,20 @@ letter-spacing: 1px;
   color: ${props => props.theme.color.graylight};
 }
 
-&:focus { 
-  border: solid 5px; 
-  border-color: ${props => props.theme.color.yellow};
-  transition: border-color 0.3s ease-in-out;
+&:focus,
+&:hover {
+  outline: solid 3px;
+  outline-color: ${props => props.theme.color.navy};
+  transition: outline-color 0.1s linear;
+}
+&:active {
+  outline: solid 3px;
+  outline-color: ${props => props.theme.color.navy};
+  transition: outline-color 0.1s linear;
+}
 }
 `;
 
-// display: ${props => (props.checkbox ? 'inline-block' : 'inline-block')};
 const FlexDiv = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -75,19 +105,23 @@ const Button = styled.button`
   font-weight: ${props => props.theme.weight.body};
   background-color: ${props => props.theme.color.yellow};
   color: ${props => props.theme.color.navy};
-  border: 0;
   padding: 1rem 2rem 1rem 2rem;
-  border-radius: 3px;
+  border-radius: 1px;
+  border: none;
   font-size: 1.2rem;
   letter-spacing: 1px;
-  border: solid 3px transparent;
   text-transform: uppercase;
   margin: 2rem 0rem 1rem 0rem;
-  &:focus {
-    outline: none;
-    border: solid 3px;
-    border-color: ${props => props.theme.color.navy};
-    transition: border-color 0.3s ease-in-out;
+  &:focus,
+  &:hover {
+    outline: solid 3px;
+    outline-color: ${props => props.theme.color.navy};
+    transition: outline-color 0.1s linear;
+  }
+  &:active {
+    outline: solid 3px;
+    outline-color: transparent
+    transition: outline-color 0.1s linear;
   }
 `;
 
@@ -171,7 +205,7 @@ export default class Form extends React.Component {
         <Input
           type="text"
           id="telephone"
-          placeholder="eg. 0700000000"
+          placeholder="eg. 07512345678"
           value={this.state.telephone}
           onChange={this.handleChange}
           autoComplete="off"
@@ -215,8 +249,7 @@ export default class Form extends React.Component {
           autoComplete="off"
         />
         <FlexDiv>
-          <Input
-            checkbox
+          <Checkbox
             type="checkbox"
             id="gdpr"
             value="checked"
