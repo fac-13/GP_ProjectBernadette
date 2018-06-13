@@ -1,12 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/app';
-import './css/global-styles';
+const express = require('express');
+const path = require('path');
+const bodyparser = require('body-parser');
+const { sendEmail } = require('./sendEmail.js');
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const localhost = process.env.HOST || 'localhost';
+const port = process.env.PORT || 3000;
 
-window.addEventListener('beforeunload', e => {
-  var confirmationMessage = 'Refreshing will lose your data, continue?';
-  e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
-  return confirmationMessage; // Gecko, WebKit, Chrome <34
+const app = express();
+
+app.disable('x-powered-by');
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
+});
+
+// Receive form data and send to GP as an email
+app.post('/send', (req, res) => {
+  // recieve form data and send to GP as an email
+  // package? nodemailer
+  sendEmail(req.body, null);
+  // console.log(req.body);
+  res.end();
+  return;
+});
+
+app.listen(port, () => {
+  console.log(`My Wayfinder is running on http://${localhost}:${port}`);
 });
