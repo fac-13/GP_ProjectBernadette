@@ -30,7 +30,7 @@ const sendEmail = (msg, error) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      return console.log('Failed to send message');
+      return console.log('Failed to send message:', error);
     }
     console.log('message sent: %s', info.messageId);
   });
