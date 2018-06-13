@@ -107,7 +107,7 @@ export default class Wayfinder extends React.Component {
         <Title>My Wayfinder</Title>
         <QuestionListContainer>
           {this.questionList()}
-          <div
+          <li
             ref={el => {
               this.questionListEnd = el;
             }}
