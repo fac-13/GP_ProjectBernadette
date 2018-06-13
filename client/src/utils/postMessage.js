@@ -1,5 +1,5 @@
 const postMessage = (endpoint, data) => {
-  return fetch(endpoint, {
+  fetch(endpoint, {
     body: JSON.stringify(data),
     method: 'POST',
     credentials: 'same-origin',
@@ -7,8 +7,8 @@ const postMessage = (endpoint, data) => {
       'Content-Type': 'application/json'
     }
   })
-    .then(res => res.json())
-    .catch(error => console.error('Fetch Error:', error));
+    .then(res => res)
+    .catch(error => console.error('Send Message Error:', error));
 };
 
 export default postMessage;
