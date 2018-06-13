@@ -1,5 +1,5 @@
 const postMessage = (endpoint, data) => {
-  fetch(endpoint, {
+  return fetch(endpoint, {
     body: JSON.stringify(data),
     method: 'POST',
     credentials: 'same-origin',
