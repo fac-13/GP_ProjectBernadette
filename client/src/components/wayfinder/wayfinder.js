@@ -12,12 +12,13 @@ const Wrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   max-width: 600px;
-  min-height: 100vh;
 
   background-color: ${props => props.theme.color.white};
   font-family: 'Raleway', 'Arial', sans-serif;
   font-weight: ${props => props.theme.weight.body};
 `;
+
+// min-height: 100vh;
 const Title = styled.h1`
   color: ${props => props.theme.color.orange};
   text-align: center;
@@ -87,8 +88,24 @@ export default class Wayfinder extends React.Component {
     this.questionListEnd.scrollIntoView({ behavior: 'smooth' });
   };
 
+  warnUser = e => {
+    const confirmationMessage = 'Refreshing will lose your data, continue?';
+    e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+    return confirmationMessage; // Gecko, WebKit, Chrome <34
+  };
+
+  componentDidMount() {
+    window.addEventListener('beforeunload', this.warnUser);
+  }
+
   componentDidUpdate() {
     this.scrollToBottom();
+
+    // When the form is submitted usersPath is cleared and its length is zero
+    // at this point the event listener is removed as the user has submitted all answers
+    if (this.state.usersPath.length === 0) {
+      window.removeEventListener('beforeunload', this.warnUser);
+    }
   }
 
   // function to clear path, passed to form in order to render the Thank You view
