@@ -11,10 +11,14 @@ const OptionsWrapper = styled.div`
 
 const ButtonsList = styled.div`
   padding: 0;
-  margin: 2rem 0;
+  margin: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
+
+  @media (min-width: 400px) {
+    margin: 2rem 0;
+  }
 `;
 
 const ButtonStyle = styled.button`
@@ -43,7 +47,6 @@ const ButtonStyle = styled.button`
         ? '0'
         : '0 2rem'};
   height: 7rem;
-  min-width: 4rem;
   min-height: fit-content;
   width: fit-content;
   z-index: 1;
