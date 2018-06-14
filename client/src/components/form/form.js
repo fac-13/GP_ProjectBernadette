@@ -75,7 +75,7 @@ const Checkbox = styled.input`
   padding: 2px;
   height: 2rem;
   min-width: 2rem;
-  
+
   &:focus,
   &:hover {
     outline: solid 5px;
@@ -94,7 +94,7 @@ const FlexDiv = styled.div`
 `;
 
 const StyledRequired = styled.p`
-  margin-left:3rem;
+  margin-left: 3rem;
 `;
 const StyledAsterisk = styled.span`
   vertical-align: sub;
@@ -182,8 +182,9 @@ export default class Form extends React.Component {
       user: this.state,
       responses: userResponseData
     };
-    postMessage('/send', message);
-    clearPath();
+    postMessage('/send', message)
+      .then(() => clearPath(false))
+      .catch(() => clearPath(true));
   };
 
   render() {
@@ -192,7 +193,9 @@ export default class Form extends React.Component {
         <Title>
           Request a callback <br />from our Advice Service
         </Title>
-        <Label htmlFor="name">What is your name?<StyledAsterisk>&#42;</StyledAsterisk></Label>
+        <Label htmlFor="name">
+          What is your name?<StyledAsterisk>&#42;</StyledAsterisk>
+        </Label>
         <Input
           type="text"
           id="name"
@@ -202,7 +205,9 @@ export default class Form extends React.Component {
           autoComplete="off"
           required
         />
-        <Label htmlFor="telephone">What is your phone number?<StyledAsterisk>&#42;</StyledAsterisk></Label>
+        <Label htmlFor="telephone">
+          What is your phone number?<StyledAsterisk>&#42;</StyledAsterisk>
+        </Label>
         <Input
           type="number"
           id="telephone"
@@ -260,10 +265,16 @@ export default class Form extends React.Component {
           />
           <Label htmlFor="gdpr">
             By submitting this form, I agree to my personal information being
-            sent to Grandparents Plus for the purposes of contacting me.<StyledAsterisk>&#42;</StyledAsterisk>
+            sent to Grandparents Plus for the purposes of contacting me.<StyledAsterisk
+            >
+              &#42;
+            </StyledAsterisk>
           </Label>
         </FlexDiv>
-        <StyledRequired> <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required</StyledRequired>
+        <StyledRequired>
+          {' '}
+          <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required
+        </StyledRequired>
         <Button type="submit">Submit</Button>
       </StyledForm>
     );

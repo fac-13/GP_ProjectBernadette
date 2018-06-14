@@ -6,9 +6,7 @@ const postMessage = (endpoint, data) => {
     headers: {
       'Content-Type': 'application/json'
     }
-  })
-    .then(res => res)
-    .catch(error => console.error('Send Message Error:', error));
+  });
 };
 
 export default postMessage;
