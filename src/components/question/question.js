@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LeftPath from '../leftPath/leftPath';
 import RightPath from '../rightPath/rightPath';
+import MidPath from '../midPath/MidPath';
 import gpTheme from '../../css/theme';
 
 const QuestionWrapper = styled.div`
@@ -19,13 +20,16 @@ const StyledDiv = styled.div`
   padding: 2rem;
   text-align: center;
   border-radius: 5px;
+  position: relative;
+  z-index: 1;
 `;
 const StyledQuestion = styled.p`
   font-size: 1.5rem;
   font-weight: ${props => props.theme.weight.body};
 `;
 
-const Question = ({ question, link, linkText, selectedPath }) => {
+const Question = ({ question, link, linkText, selectedPath, options }) => {
+  console.log(options);
   return (
     <QuestionWrapper>
       <StyledDiv>
@@ -42,12 +46,21 @@ const Question = ({ question, link, linkText, selectedPath }) => {
           ) : null}
         </StyledQuestion>
       </StyledDiv>
-      <LeftPath
-        color={selectedPath == '0' ? gpTheme.color.orange : undefined}
-      />
-      <RightPath
-        color={selectedPath == '1' ? gpTheme.color.orange : undefined}
-      />
+      {options.length == 1 && 
+          <MidPath
+            color={selectedPath == '0' ? gpTheme.color.orange : undefined}
+          />
+      }
+      {options.length > 1 && 
+        <React.Fragment>
+          <LeftPath
+            color={selectedPath == '0' ? gpTheme.color.orange : undefined}
+          />
+          <RightPath
+            color={selectedPath == '1' ? gpTheme.color.orange : undefined}
+          />
+        </React.Fragment>
+      }
     </QuestionWrapper>
   );
 };
