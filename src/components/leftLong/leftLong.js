@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledPathL = styled.div`
-  display: inline-block;
-  position: relative;
-  top: -230px;
-  left: 13%;
+  border: solid 1px red;
   width: fit-content;
+  position: relative;
+  top: -40%;
+  left: 16%;
+
   @media (min-width: 400px) {
     left: 8%;
   }
@@ -17,8 +18,8 @@ const LeftLong = ({ color = '#DADADA' }) => {
     <StyledPathL>
       <svg
         width="100"
-        height="220"
-        viewBox="0 0 154 220"
+        height="320"
+        viewBox="0 0 154 420"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

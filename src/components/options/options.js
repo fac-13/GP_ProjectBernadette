@@ -46,6 +46,7 @@ const ButtonStyle = styled.button`
   min-width: 4rem;
   min-height: fit-content;
   width: fit-content;
+  z-index: 1;
 `;
 
 const Button = ({ answer, goto, clickHandler, dataKey, selectedPath }) => {

@@ -13,6 +13,7 @@ const Item = styled.li`
   max-height: 100vh;
   max-width: 320px;
   margin: 0 auto;
+  border: solid 1px green;
 `;
 
 export default class QAContainer extends React.Component {
