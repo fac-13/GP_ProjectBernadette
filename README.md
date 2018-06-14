@@ -14,7 +14,7 @@ An accessible, decision tree web app built to help grandparents and other carers
 ```
 $ git clone https://github.com/fac-13/GP_ProjectBernadette.git
    ```
-#### 2. Set environmental variables:
+#### 2. Set environment variables:
 
 Create a `config.env` file in your root folder.
 Add the following variables: 
