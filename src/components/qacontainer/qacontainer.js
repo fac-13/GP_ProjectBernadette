@@ -60,8 +60,12 @@ export default class QAContainer extends React.Component {
               clickHandler={this.props.clickHandler}
               selectedPath={this.props.selectedPath}
             />
+            {options.length > 1 &&
+            <React.Fragment>
             {this.props.selectedPath == 0 && <LeftLong />}
             {this.props.selectedPath == 1 && <RightLong />}
+            </React.Fragment>
+            }
           </React.Fragment>
         )}
       </Item>
