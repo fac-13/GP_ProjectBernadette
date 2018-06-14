@@ -41,12 +41,13 @@ const Label = styled.label`
 
 const Input = styled.input`
 outline: none;
-padding: 2.5%;
+padding: %;
 margin: .7rem 0 1.8rem 0;
 width: 93%
 height: 2rem;
 color: ${props => props.theme.color.graydark};
 border: none; 
+border-radius: 5px
 font-size: 1.2rem;
 letter-spacing: 1px;
 
@@ -64,6 +65,39 @@ letter-spacing: 1px;
 &:active {
   outline: none;
 }
+`;
+const Dropdown = styled.select`
+margin: .7rem 0 1.8rem 0;
+width: 98%
+height: 3rem;
+padding-left: 3px;
+color: ${props => props.theme.color.graydark};
+font-size: 1.2rem;
+letter-spacing: 1px;
+border: none;
+
+@media (max-width: 420px) {
+  font-size: 1rem;
+}
+
+&:focus,
+&:hover {
+  outline: solid 5px;
+  outline-color: ${props => props.theme.color.yellow};
+}
+&:active {
+  outline: none;
+}
+`;
+
+// TODO form option
+const Option = styled.option`
+
+`
+
+const FlexDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const Checkbox = styled.input`
@@ -87,16 +121,11 @@ const Checkbox = styled.input`
   }
 `;
 
-const FlexDiv = styled.div`
-  display: flex;
-  justify-content: flex-start;
-`;
-
 const StyledRequired = styled.p`
   margin-left:3rem;
 `;
+
 const StyledAsterisk = styled.span`
-  vertical-align: sub;
   font-size: 2rem;
 `;
 
@@ -123,6 +152,8 @@ const Button = styled.button`
     transition: outline-color 0.1s linear;
   }
 `;
+
+
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -186,11 +217,13 @@ export default class Form extends React.Component {
   };
 
   render() {
+    console.log(this.state)
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <Title>
           Request a callback <br />from our Advice Service
         </Title>
+
         <Label htmlFor="name">What is your name?<StyledAsterisk>&#42;</StyledAsterisk></Label>
         <Input
           type="text"
@@ -241,14 +274,18 @@ export default class Form extends React.Component {
           autoComplete="off"
         />
         <Label htmlFor="source">How did you hear about us?</Label>
-        <Input
-          type="text"
-          id="source"
-          placeholder="eg. dropdown"
-          value={this.state.source}
-          onChange={this.handleChange}
-          autoComplete="off"
-        />
+  
+        <Dropdown
+         id="source"
+         value={this.state.source}
+         onChange={this.handleChange}>
+          <Option value="" disabled>Select an option:</Option>
+          <Option value="Social Services">Social Services</Option>
+          <Option value="Word of Mout">Word of mouth</Option>
+          <Option value="Internet Search">Internet search</Option>
+          <Option value="Other">Other</Option>
+        </Dropdown>
+          
         <FlexDiv>
           <Checkbox
             type="checkbox"
@@ -262,8 +299,11 @@ export default class Form extends React.Component {
             sent to Grandparents Plus for the purposes of contacting me.<StyledAsterisk>&#42;</StyledAsterisk>
           </Label>
         </FlexDiv>
+
         <StyledRequired> <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required</StyledRequired>
+
         <Button type="submit">Submit</Button>
+
       </StyledForm>
     );
   }
