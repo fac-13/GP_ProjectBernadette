@@ -6,7 +6,7 @@ import check from '../../assets/check.svg';
 
 const StyledForm = styled.form`
   padding: 1.5rem 3rem 2rem 3.3rem;
-  margin: 0 2rem 0 2rem;
+  margin: 4rem 2rem;
   background-color: ${props => props.theme.color.orange};
   border: none;
   border-radius: 5px;
@@ -18,7 +18,7 @@ const StyledForm = styled.form`
   @media (max-width: 420px) {
     font-size: 1rem;
     padding: 1.5rem 1.5rem 2rem 1.5rem;
-    margin: 0 1rem 2rem 1rem;
+    margin: 2rem 1rem;
   }
 `;
 
