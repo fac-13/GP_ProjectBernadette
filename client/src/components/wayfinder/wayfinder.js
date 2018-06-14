@@ -6,7 +6,7 @@ import Form from '../form/form';
 import findKey from '../../utils/findKey';
 import ThankYou from '../thankYou/thankYou';
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,6 +33,7 @@ const Title = styled.h1`
 const QuestionListContainer = styled.ul`
   padding: 1rem;
   width: 90%;
+  list-style-type: none;
 `;
 
 export default class Wayfinder extends React.Component {
