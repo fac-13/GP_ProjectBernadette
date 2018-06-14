@@ -191,19 +191,21 @@ export default class Form extends React.Component {
           value={this.state.name}
           onChange={this.handleChange}
           autoComplete="off"
+          required
         />
         <Label htmlFor="telephone">What is your phone number?</Label>
         <Input
-          type="text"
+          type="number"
           id="telephone"
           placeholder="eg. 07512345678"
           value={this.state.telephone}
           onChange={this.handleChange}
           autoComplete="off"
+          required
         />
         <Label htmlFor="email">What is your email address?</Label>
         <Input
-          type="text"
+          type="email"
           id="email"
           placeholder="eg. jane@email.com"
           value={this.state.email}
