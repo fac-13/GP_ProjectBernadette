@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import LeftPath from '../leftPath/leftPath';
-import RightPath from '../rightPath/rightPath';
-import MidPath from '../midPath/MidPath';
+import LeftPath from '../paths/leftPath/leftPath';
+import RightPath from '../paths/rightPath/rightPath';
+import MidPath from '../paths/midPath/MidPath';
 import gpTheme from '../../css/theme';
 
 const QuestionWrapper = styled.div`

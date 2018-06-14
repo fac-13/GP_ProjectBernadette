@@ -3,9 +3,9 @@ import Question from '../question/question';
 import Options from '../options/options';
 import Result from '../result/result';
 import styled from 'styled-components';
-import LeftLong from '../leftLong/leftLong';
-import RightLong from '../rightLong/rightLong';
-import MidLong from '../midLong/midLong';
+import LeftLong from '../paths/leftLong/leftLong';
+import RightLong from '../paths/rightLong/rightLong';
+import MidLong from '../paths/midLong/midLong';
 
 const Item = styled.li`
   list-style: none;
