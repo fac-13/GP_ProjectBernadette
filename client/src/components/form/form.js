@@ -92,6 +92,14 @@ const FlexDiv = styled.div`
   justify-content: flex-start;
 `;
 
+const StyledRequired = styled.p`
+  margin-left:3rem;
+`;
+const StyledAsterisk = styled.span`
+  vertical-align: sub;
+  font-size: 2rem;
+`;
+
 const Button = styled.button`
   font-weight: ${props => props.theme.weight.body};
   background-color: ${props => props.theme.color.yellow};
@@ -183,7 +191,7 @@ export default class Form extends React.Component {
         <Title>
           Request a callback <br />from our Advice Service
         </Title>
-        <Label htmlFor="name">What is your name?</Label>
+        <Label htmlFor="name">What is your name?<StyledAsterisk>&#42;</StyledAsterisk></Label>
         <Input
           type="text"
           id="name"
@@ -193,11 +201,11 @@ export default class Form extends React.Component {
           autoComplete="off"
           required
         />
-        <Label htmlFor="telephone">What is your phone number?</Label>
+        <Label htmlFor="telephone">What is your phone number?<StyledAsterisk>&#42;</StyledAsterisk></Label>
         <Input
           type="number"
           id="telephone"
-          placeholder="eg. 07512345678"
+          placeholder="eg. 020 8981 8001"
           value={this.state.telephone}
           onChange={this.handleChange}
           autoComplete="off"
@@ -251,11 +259,10 @@ export default class Form extends React.Component {
           />
           <Label htmlFor="gdpr">
             By submitting this form, I agree to my personal information being
-            sent to Grandparents Plus for the purposes of contacting me. &#42;
-            <span style={{ fontStyle: 'italic' }}>required</span>
+            sent to Grandparents Plus for the purposes of contacting me.<StyledAsterisk>&#42;</StyledAsterisk>
           </Label>
         </FlexDiv>
-
+        <StyledRequired> <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required</StyledRequired>
         <Button type="submit">Submit</Button>
       </StyledForm>
     );
