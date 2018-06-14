@@ -105,7 +105,7 @@ export default class Wayfinder extends React.Component {
     }
   }
 
-  // function to clear path, passed to form
+  // function to clear path, passed to form in order to render the Thank You view
   clearUsersPath = () => {
     this.setState({
       usersPath: [],

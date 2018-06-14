@@ -1,6 +1,7 @@
 import React from 'react';
 import content from '../../data/wayfinderData.js';
 import styled from 'styled-components';
+import postMessage from '../../utils/postMessage';
 
 const StyledForm = styled.form`
   padding: 1.5rem 3rem 2rem 3rem;
@@ -138,12 +139,16 @@ export default class Form extends React.Component {
     });
   };
 
+  // TODO could this be made asyncronous?
   handleSubmit = event => {
-    const { clearPath } = this.props;
     event.preventDefault();
-
+    const { clearPath } = this.props; // neede to update state and render the ThankYou view
     const userResponseData = this.generateUserResponseDataFromPath();
-    // TODO state and userResponseData needs to be sent to the server.
+    const message = {
+      user: this.state,
+      responses: userResponseData
+    };
+    postMessage('/send', message);
     clearPath();
   };
 
