@@ -12,13 +12,7 @@ const StyledPathL = styled.div`
   }
 `;
 
-/**
- * position: relative;
-  top: -40%;
-  left: 16%;
- */
-
-const LeftLong = ({ color = '#DADADA' }) => {
+const LeftLong = ({ color = '#ec632f' }) => {
   return (
     <StyledPathL>
       <svg
