@@ -105,7 +105,6 @@ export default class Wayfinder extends React.Component {
     return (
       <Wrapper>
         <Title>My Wayfinder</Title>
-        <Form usersPath={usersPath} clearPath={this.clearUsersPath} />
         <QuestionListContainer>
           {this.questionList()}
           <div
