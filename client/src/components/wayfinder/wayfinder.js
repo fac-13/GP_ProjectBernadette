@@ -67,7 +67,6 @@ export default class Wayfinder extends React.Component {
 
   questionList = () => {
     const { content, usersPath, selectedPath } = this.state;
-
     return (
       <React.Fragment>
         {usersPath.map((item, i) => {

@@ -8,7 +8,7 @@ let transporter = nodemailer.createTransport({
     pass: process.env.ACCT_PASSWORD
   }
 });
-const sendEmail = (msg, error) => {
+const sendEmail = msg => {
   const { user, responses } = msg;
   const contactInfo = `<strong>Name:</strong> ${user.name}<br> 
       <strong>Telephone:</strong> ${user.telephone}<br>
@@ -28,12 +28,7 @@ const sendEmail = (msg, error) => {
     html: `<p><strong>Client Contact Information: </strong><br>${contactInfo} <br><br><br> <strong>Client Responses:</strong><br> ${responsesString}</p>`
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log('Failed to send message:', error);
-    }
-    console.log('message sent: %s', info.messageId);
-  });
+  return transporter.sendMail(mailOptions);
 };
 
 module.exports = { sendEmail };
