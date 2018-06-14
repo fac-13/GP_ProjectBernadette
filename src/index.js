@@ -19,12 +19,8 @@ app.get('/', (req, res) => {
 
 // Receive form data and send to GP as an email
 app.post('/send', (req, res) => {
-  // recieve form data and send to GP as an email
-  // package? nodemailer
   sendEmail(req.body, null);
-  // console.log(req.body);
-  res.end();
-  return;
+  res.status(204).end();
 });
 
 app.listen(port, () => {
