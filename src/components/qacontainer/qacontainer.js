@@ -4,6 +4,7 @@ import Options from '../options/options';
 import Result from '../result/result';
 import styled from 'styled-components';
 import LeftLong from '../leftLong/leftLong';
+import RightLong from '../rightLong/rightLong';
 
 const Item = styled.li`
   list-style: none;
@@ -60,6 +61,7 @@ export default class QAContainer extends React.Component {
               selectedPath={this.props.selectedPath}
             />
             {this.props.selectedPath == 0 && <LeftLong />}
+            {this.props.selectedPath == 1 && <RightLong />}
           </React.Fragment>
         )}
       </Item>
