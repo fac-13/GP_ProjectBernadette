@@ -12,12 +12,13 @@ const Wrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   max-width: 600px;
-  min-height: 100vh;
 
   background-color: ${props => props.theme.color.white};
   font-family: 'Raleway', 'Arial', sans-serif;
   font-weight: ${props => props.theme.weight.body};
 `;
+
+// min-height: 100vh;
 const Title = styled.h1`
   color: ${props => props.theme.color.orange};
   text-align: center;
