@@ -10,11 +10,15 @@ const Item = styled.li`
   box-sizing: border-box;
   outline: none;
   height: fit-content;
-  max-height: 100vh;
+
   max-width: 320px;
   margin: 0 auto;
   border: solid 1px green;
+
+  margin-bottom: -5%;
 `;
+
+// max-height: 100vh;
 
 export default class QAContainer extends React.Component {
   //setTimeout allows for smooth scroll to finish before the focus takes place

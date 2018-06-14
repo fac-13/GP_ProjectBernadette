@@ -4,14 +4,19 @@ import styled from 'styled-components';
 const StyledPathL = styled.div`
   border: solid 1px red;
   width: fit-content;
-  position: relative;
-  top: -40%;
-  left: 16%;
+  margin-top: -79%;
+  margin-left: 15%;
 
   @media (min-width: 400px) {
     left: 8%;
   }
 `;
+
+/**
+ * position: relative;
+  top: -40%;
+  left: 16%;
+ */
 
 const LeftLong = ({ color = '#DADADA' }) => {
   return (
