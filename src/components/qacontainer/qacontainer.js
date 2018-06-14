@@ -13,7 +13,6 @@ const Item = styled.li`
   height: fit-content;
   max-width: 320px;
   margin: 0 auto;
-  border: solid 1px green;
   margin-bottom: -5%;
   position: relative;
 `;

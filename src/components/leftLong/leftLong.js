@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledPathL = styled.div`
-  border: solid 1px red;
   width: fit-content;
   margin-top: -79%;
   margin-left: 15%;
