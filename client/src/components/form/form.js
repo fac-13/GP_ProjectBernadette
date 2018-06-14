@@ -41,7 +41,7 @@ const Label = styled.label`
 
 const Input = styled.input`
 outline: none;
-padding: %;
+padding: 2.5%;
 margin: .7rem 0 1.8rem 0;
 width: 93%
 height: 2rem;
@@ -217,7 +217,7 @@ export default class Form extends React.Component {
   };
 
   render() {
-    console.log(this.state)
+  
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <Title>
