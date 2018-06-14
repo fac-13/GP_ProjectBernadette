@@ -29,7 +29,6 @@ const StyledQuestion = styled.p`
 `;
 
 const Question = ({ question, link, linkText, selectedPath, options }) => {
-  console.log(options);
   return (
     <QuestionWrapper>
       <StyledDiv>
