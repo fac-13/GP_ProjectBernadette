@@ -19,8 +19,13 @@ app.get('/', (req, res) => {
 
 // Receive form data and send to GP as an email
 app.post('/send', (req, res) => {
-  sendEmail(req.body, null);
-  res.status(204).end();
+  sendEmail(req.body)
+    .then(() => {
+      res.status(204).end();
+    })
+    .catch(() => {
+      res.status(500).end();
+    });
 });
 
 app.listen(port, () => {

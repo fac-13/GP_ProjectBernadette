@@ -37,6 +37,7 @@ const Title = styled.h1`
 
 const Label = styled.label`
   margin: 0.5rem 0 0.2rem 0;
+  font-weight: ${props => props.theme.weight.link};
 `;
 
 const Input = styled.input`
