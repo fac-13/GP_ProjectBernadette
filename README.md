@@ -1,17 +1,30 @@
-# Project Bernadette (working title: My Wayfinder)
+# My Wayfinder
+### A project with [Grandparents Plus](https://www.grandparentsplus.org.uk/)
 
-An accessible, decision tree web app built to help grandparents and other carers visiting the [Grandparents Plus](https://www.grandparentsplus.org.uk/) website recognize their status as a 'Kinship Carer', guide them to relevant resources, and provide information for an advice callback from the charity.
+An accessible, decision tree web app built to help grandparents and other carers visiting the Grandparents Plus charity's website recognize their status as a 'Kinship Carer', guide them to relevant resources, and provide information for an advice callback from the charity.
 
-**View the app development site here:** tbc
+### View the development site here: http://my-wayfinder.herokuapp.com/
 
-**How to run locally:**
+### How to run locally:
 
-You will need to run two scripts concurrently for the server and React app respectively.
-
-Clone the repo: 
+#### 1. Clone the repo: 
 ```
 $ git clone https://github.com/fac-13/GP_ProjectBernadette.git
    ```
+#### 2. Set environmental variables:
+
+Create a `config.env` file in your root folder.
+Add the following variables: 
+
+```
+ACCT_EMAIL= [ email you want to send emails from ]
+ACCT_PASSWORD= [ password variable ]
+EMAIL_TO= [ email where you want to receive form message (can be the same account as the sending email) ]
+```
+
+#### 3. Run the site locally:
+
+You will need to run two scripts concurrently for the server and React app respectively.
 
 To build and run the Server:
 ```
@@ -25,7 +38,7 @@ $ npm i
 $ npm run build 
 $ npm run start
    ```
-**For testing the React App:**
+#### 4. Testing:
 
 ```
 $ cd client
@@ -37,8 +50,8 @@ $ npm run test
 - React with styled-components
 - Parcel
 - Jest
-- Node / Express for form handling
-- Hosting: TBC
+- NodeJS Express server for form handling using Nodemailer package
+- Hosting: Heroku
 
 ## The Challenge
 
