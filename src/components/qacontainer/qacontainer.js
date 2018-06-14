@@ -50,6 +50,7 @@ export default class QAContainer extends React.Component {
           <React.Fragment>
             <Question
               question={question}
+              options={options}
               link={link}
               linkText={linkText}
               selectedPath={this.props.selectedPath}
