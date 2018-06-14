@@ -10,12 +10,11 @@ const Item = styled.li`
   box-sizing: border-box;
   outline: none;
   height: fit-content;
-
   max-width: 320px;
   margin: 0 auto;
   border: solid 1px green;
-
   margin-bottom: -5%;
+  position: relative;
 `;
 
 // max-height: 100vh;
@@ -60,7 +59,7 @@ export default class QAContainer extends React.Component {
               clickHandler={this.props.clickHandler}
               selectedPath={this.props.selectedPath}
             />
-            <LeftLong />
+            {this.props.selectedPath == 0 && <LeftLong />}
           </React.Fragment>
         )}
       </Item>
