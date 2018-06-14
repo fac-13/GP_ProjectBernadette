@@ -308,7 +308,6 @@ export default class Form extends React.Component {
         </FlexDiv>
 
         <StyledRequired>
-          {' '}
           <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required
         </StyledRequired>
 
