@@ -100,6 +100,8 @@ export default class Wayfinder extends React.Component {
   componentDidUpdate() {
     this.scrollToBottom();
 
+    // When the form is submitted usersPath is cleared and its length is zero
+    // at this point the event listener is removed as the user has submitted all answers
     if (this.state.usersPath.length === 0) {
       window.removeEventListener('beforeunload', this.warnUser);
     }
