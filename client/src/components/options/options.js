@@ -6,7 +6,7 @@ const OptionsWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   position: relative;
-  top: -5rem;
+  top: -5.5rem;
 `;
 
 const ButtonsList = styled.div`
