@@ -15,18 +15,29 @@ const StyledThankYouLink = styled.a`
   color: #35545d;
 `;
 
-const ThankYou = () => {
+const ThankYou = props => {
+  const { error } = props;
   return (
     <StyledThankYou>
-      <p>
-        Thank you for submitting the form! You should hear back from us in 3
-        working days.
-      </p>
-      <p>
-        <StyledThankYouLink href="https://www.grandparentsplus.org.uk/">
-          Return to the Grandparents Plus website.
-        </StyledThankYouLink>
-      </p>
+      <React.Fragment>
+        {error ? (
+          <p>
+            Sorry, there was a problem sending your information.
+            <br />Please try again later. You can also reach our advice line at
+            0300 123 7015.
+          </p>
+        ) : (
+          <p>
+            Thank you for submitting the form! You should hear back from us in 3
+            working days.
+          </p>
+        )}
+        <p>
+          <StyledThankYouLink href="https://www.grandparentsplus.org.uk/">
+            Return to the Grandparents Plus website.
+          </StyledThankYouLink>
+        </p>
+      </React.Fragment>
     </StyledThankYou>
   );
 };

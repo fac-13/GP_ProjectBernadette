@@ -45,12 +45,12 @@ const Question = ({ question, link, linkText, selectedPath, options }) => {
           ) : null}
         </StyledQuestion>
       </StyledDiv>
-      {options.length == 1 && 
-          <MidPath
-            color={selectedPath == '0' ? gpTheme.color.orange : undefined}
-          />
-      }
-      {options.length > 1 && 
+      {options.length == 1 && (
+        <MidPath
+          color={selectedPath == '0' ? gpTheme.color.orange : undefined}
+        />
+      )}
+      {options.length > 1 && (
         <React.Fragment>
           <LeftPath
             color={selectedPath == '0' ? gpTheme.color.orange : undefined}
@@ -59,7 +59,7 @@ const Question = ({ question, link, linkText, selectedPath, options }) => {
             color={selectedPath == '1' ? gpTheme.color.orange : undefined}
           />
         </React.Fragment>
-      }
+      )}
     </QuestionWrapper>
   );
 };

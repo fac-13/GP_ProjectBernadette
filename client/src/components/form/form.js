@@ -92,9 +92,7 @@ border: none;
 `;
 
 // TODO form option
-const Option = styled.option`
-
-`
+const Option = styled.option``;
 
 const FlexDiv = styled.div`
   display: flex;
@@ -109,7 +107,7 @@ const Checkbox = styled.input`
   padding: 2px;
   height: 2rem;
   min-width: 2rem;
-  
+
   &:focus,
   &:hover {
     outline: solid 5px;
@@ -123,7 +121,7 @@ const Checkbox = styled.input`
 `;
 
 const StyledRequired = styled.p`
-  margin-left:3rem;
+  margin-left: 3rem;
 `;
 
 const StyledAsterisk = styled.span`
@@ -153,8 +151,6 @@ const Button = styled.button`
     transition: outline-color 0.1s linear;
   }
 `;
-
-
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -213,19 +209,21 @@ export default class Form extends React.Component {
       user: this.state,
       responses: userResponseData
     };
-    postMessage('/send', message);
-    clearPath();
+    postMessage('/send', message)
+      .then(() => clearPath(false))
+      .catch(() => clearPath(true));
   };
 
   render() {
-  
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <Title>
           Request a callback <br />from our Advice Service
         </Title>
 
-        <Label htmlFor="name">What is your name?<StyledAsterisk>&#42;</StyledAsterisk></Label>
+        <Label htmlFor="name">
+          What is your name?<StyledAsterisk>&#42;</StyledAsterisk>
+        </Label>
         <Input
           type="text"
           id="name"
@@ -235,7 +233,9 @@ export default class Form extends React.Component {
           autoComplete="off"
           required
         />
-        <Label htmlFor="telephone">What is your phone number?<StyledAsterisk>&#42;</StyledAsterisk></Label>
+        <Label htmlFor="telephone">
+          What is your phone number?<StyledAsterisk>&#42;</StyledAsterisk>
+        </Label>
         <Input
           type="number"
           id="telephone"
@@ -275,18 +275,21 @@ export default class Form extends React.Component {
           autoComplete="off"
         />
         <Label htmlFor="source">How did you hear about us?</Label>
-  
+
         <Dropdown
-         id="source"
-         value={this.state.source}
-         onChange={this.handleChange}>
-          <Option value="" disabled>Select an option:</Option>
+          id="source"
+          value={this.state.source}
+          onChange={this.handleChange}
+        >
+          <Option value="" disabled>
+            Select an option:
+          </Option>
           <Option value="Social Services">Social Services</Option>
           <Option value="Word of Mout">Word of mouth</Option>
           <Option value="Internet Search">Internet search</Option>
           <Option value="Other">Other</Option>
         </Dropdown>
-          
+
         <FlexDiv>
           <Checkbox
             type="checkbox"
@@ -297,14 +300,18 @@ export default class Form extends React.Component {
           />
           <Label htmlFor="gdpr">
             By submitting this form, I agree to my personal information being
-            sent to Grandparents Plus for the purposes of contacting me.<StyledAsterisk>&#42;</StyledAsterisk>
+            sent to Grandparents Plus for the purposes of contacting me.<StyledAsterisk
+            >
+              &#42;
+            </StyledAsterisk>
           </Label>
         </FlexDiv>
 
-        <StyledRequired> <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required</StyledRequired>
+        <StyledRequired>
+          <StyledAsterisk>&#42;</StyledAsterisk>starred fields are required
+        </StyledRequired>
 
         <Button type="submit">Submit</Button>
-
       </StyledForm>
     );
   }

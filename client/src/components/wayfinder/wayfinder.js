@@ -12,7 +12,7 @@ const Wrapper = styled.main`
   align-items: center;
   margin: 0 auto;
   max-width: 600px;
-
+  min-height: 100vh;
   background-color: ${props => props.theme.color.white};
   font-family: 'Raleway', 'Arial', sans-serif;
   font-weight: ${props => props.theme.weight.body};
@@ -44,7 +44,8 @@ export default class Wayfinder extends React.Component {
     this.state = {
       usersPath: ['start'],
       selectedPath: [],
-      content: content
+      content: content,
+      error: false
     };
   }
 
@@ -109,15 +110,16 @@ export default class Wayfinder extends React.Component {
   }
 
   // function to clear path, passed to form in order to render the Thank You view
-  clearUsersPath = () => {
+  clearUsersPath = err => {
     this.setState({
       usersPath: [],
-      selectedPath: []
+      selectedPath: [],
+      error: err
     });
   };
 
   render() {
-    const { usersPath } = this.state;
+    const { usersPath, error } = this.state;
     const formRegex = /complete-form/g;
     return (
       <Wrapper>
@@ -133,7 +135,7 @@ export default class Wayfinder extends React.Component {
         {usersPath.some(string => formRegex.test(string)) ? (
           <Form usersPath={usersPath} clearPath={this.clearUsersPath} />
         ) : null}
-        {this.state.usersPath.length === 0 && <ThankYou />}
+        {this.state.usersPath.length === 0 && <ThankYou error={error} />}
       </Wrapper>
     );
   }
